@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  font-family: $font-main;
+  color: $black;
+}
+
+html {
+  overflow-y: scroll; // Forces the vertical scrollbar to always exist
+}
+
+// Layer 1: Official University Strip
+.university-header {
+  background-color: $cwru-blue;
+  padding: 8px 0; 
+  width: 100%;
+  
+  .container {
+    max-width: 100%; 
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 20px;            
+  }
+  
+  img {
+    height: 30px; // Adjust based on your visual preference
+  }
+}
+
+
+// Layer 2: Lab Branding & Nav
+.lab-header {
+  background: $white;
+  border-bottom: 1px solid $light-gray;
+  padding: 10px 0; 
+  
+  .container {
+    max-width: 1400px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 0 40px;
+    position: relative; 
+  }
+
+  .lab-logo img {
+    height: 90px;      
+    width: auto;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: flex-end;
+      align-items: center; 
+      gap: 12px 10px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      display: inline-block;
+      white-space: nowrap;
+      padding: 10px 20px;
+      background: $bg-ghost; 
+      border: 1px solid $light-gray;
+      border-radius: 30px; 
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: $cwru-blue;
+      transition: all 0.25s ease;
+
+      // The High-Contrast Highlight
+      &:hover {
+        background: $cwru-blue; 
+        border-color: $cwru-blue; 
+        color: $white;         
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      &.active {
+        background: $cwru-blue;
+        color: $white;
+        border-color: $cwru-blue;
+      }
+    }
+  }
+
+  .nav-toggle { display: none; }
+
+  // --- HAMBURGER DRAWING LOGIC ---
+  .nav-toggle-label {
+    display: none; // Hidden on desktop
+    cursor: pointer;
+    padding: 10px;
+    
+    // The three lines of the burger
+    span, span::before, span::after {
+      display: block;
+      background: $cwru-blue; // Using brand variable
+      height: 3px;
+      width: 30px;
+      border-radius: 2px;
+      position: relative;
+    }
+    span::before { content: ''; position: absolute; bottom: 10px; }
+    span::after { content: ''; position: absolute; top: 10px; }
+  }
+}
+
+// --- Mobile/Tablet Responsive (Below 992px) ---
+@media screen and (max-width: 992px) {
+  .lab-header {
+    padding: 15px 0;
+    
+    .nav-toggle-label { 
+      display: block; 
+      z-index: 1001;
+    }
+
+    nav {
+      display: block; 
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: $white;
+      width: 100%;
+      transform: scale(1, 0); 
+      transform-origin: top;
+      transition: transform 400ms ease-in-out;
+      z-index: 1000;
+      border-top: 1px solid $light-gray;
+      border-bottom: 2px solid $cwru-blue;
+
+      ul { 
+        flex-direction: column; 
+        gap: 0; 
+      }
+
+      a {
+        display: block;
+        padding: 20px;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $light-gray;
+        text-align: center;
+
+        &:hover {
+          background: $bg-ghost;
+          color: $cwru-blue;
+          transform: none;
+          box-shadow: none;
+        }
+      }
+    }
+
+    .nav-toggle:checked ~ nav { 
+      transform: scale(1, 1); 
+    }
+  }
+}
+
+
+.main-content {
+  max-width: 1250px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+

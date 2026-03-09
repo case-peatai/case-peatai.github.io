@@ -1,0 +1,14 @@
+<svg width="700" height="150" viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(300, 75)" text-anchor="middle">
+    <text y="5" font-family="Montserrat, Orbitron, sans-serif" font-weight="900" font-size="80" font-style="italic">
+      <tspan fill="#003071" letter-spacing="-3">PEAT</tspan>
+      <tspan fill="#007AB8" font-weight="600" letter-spacing="0">AI</tspan>
+    </text>
+
+    <text y="45" font-family="Arial, sans-serif" font-weight="650" font-size="18" fill="#999999" letter-spacing="4">
+      PERFORMANT • EMBODIED • AGENTIC • TRUSTWORTHY
+    </text>
+    
+    <path d="M-330 55 H-10 L0 40 L10 70 L20 55 H330" stroke="#007AB8" stroke-width="2" fill="none" opacity="0.6"/>
+  </g>
+</svg>

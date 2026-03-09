@@ -1,0 +1,57 @@
+// For the side by side content blocks in about screen
+.home-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 30px 20px;
+  max-width: 1250px; // Aligns with your main site width
+  margin: 0 auto;
+
+  // The Full-Width Blue Band logic
+&.blue-band-wrapper {
+  background-color: $cwru-light-blue;
+
+  // Breaking out of the container to hit screen edges
+  box-shadow: 0 0 0 100vmax $cwru-light-blue;
+  clip-path: inset(0 -100vmax); 
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  // Add this: target paragraphs inside the blue band specifically
+  p {
+    color: black; 
+  }
+}
+
+  .text-content {
+    flex: 1;
+    h2 { color: $cwru-blue; font-size: 2.2rem; margin-bottom: 1.5rem; }
+    p { line-height: 1.7; font-size: 1.1rem; }
+  }
+
+  .image-content {
+    flex: 1;
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px; // Smooth, modern corners
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+  }
+
+  // Mobile Stacking Logic
+  @media (max-width: 900px) {
+    flex-direction: column; // Stacks text/image vertically
+    text-align: center;
+    padding: 60px 20px;
+
+    &.reverse {
+      flex-direction: column-reverse; // Puts image on top for specific sections
+    }
+
+    .image-content img {
+      max-width: 100%; // Image takes full width instead of shrinking
+    }
+  }
+}

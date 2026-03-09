@@ -1,0 +1,37 @@
+title: PEATAI
+email: brand@case.edu
+description: Center for Performant, Embodied, Agentic & Trustworthy AI
+baseurl: ""
+url: "https://case-peatai.github.io"
+
+future: false
+show_drafts: false
+incremental: false
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .gitignore
+  - README.md
+
+keep_files:
+  - assets
+collections:
+  people:
+    output: true
+    permalink: /team/:path/
+    
+liquid:
+  error_mode: strict

@@ -1,0 +1,85 @@
+---
+layout: default
+---
+
+<div class="main-content">
+  <div class="profile-container">
+    
+    <div class="profile-header">
+      <img
+        src="{{ page.image | relative_url }}"
+        alt="{{ page.name }}"
+        class="profile-photo"
+      />
+      <div class="profile-info">
+        <h1>{{ page.name }}</h1>
+        <p><strong>{{ page.role }}</strong></p>
+        <p>{{ page.email }}</p>
+      </div>
+    </div>
+
+    <div class="profile-tabs">
+      <button class="tab-btn active" onclick="openTab(event, 'statement')">
+        Statement
+      </button>
+      <button class="tab-btn" onclick="openTab(event, 'research')">
+        Research
+      </button>
+      <button class="tab-btn" onclick="openTab(event, 'students')">
+        Students/Affiliates
+      </button>
+    </div>
+
+    <div id="statement" class="tab-content show">
+      {{ content }}
+    </div>
+
+    <div id="research" class="tab-content">
+      <h3>Current Research</h3>
+      <p>{{ page.research_summary }}</p>
+    </div>
+
+    <div id="students" class="tab-content">
+      <h3>Advisees & Collaborators</h3>
+      <div class="people-grid researchers">
+        {% for student_id in page.students %}
+          {% assign student = site.people | where: "slug", student_id | first %}
+          {% if student %}
+            <a href="{{ student.url | relative_url }}" class="person-card">
+              <div class="image-wrapper">
+                <img
+                  src="{{ student.image | relative_url }}"
+                  alt="{{ student.name }}"
+                />
+              </div>
+              <div class="person-info">
+                <h3>{{ student.name }}</h3>
+                <p>{{ student.role }}</p>
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        // Hide all tab content
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].classList.remove("show");
+        }
+        // Remove 'active' class from all buttons
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].classList.remove("active");
+        }
+        // Show current tab and add active class to the button
+        document.getElementById(tabName).classList.add("show");
+        evt.currentTarget.classList.add("active");
+      }
+    </script>
+
+  </div>
+</div>

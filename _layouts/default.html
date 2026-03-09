@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ '/assets/css/style.css' | relative_url }}"
+    />
+  </head>
+  <body>
+    <header class="university-header">
+      <div class="container">
+        <a href="https://case.edu">
+          <img
+            src="{{ '/assets/images/logo-case.svg' | relative_url }}"
+            alt="Case Western Reserve University"
+          />
+        </a>
+      </div>
+    </header>
+
+    <header class="lab-header">
+      <div class="container">
+        <div class="lab-logo">
+          <a href="{{ '/' | relative_url }}">
+            <img
+              src="{{ '/assets/images/peatAI.svg' | relative_url }}"
+              alt="PEATAI Lab Logo"
+            />
+          </a>
+        </div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+        </label>
+
+        <nav>
+          <ul>
+            <li><a href="{{ '/' | relative_url }}">About</a></li>
+            <li><a href="{{ '/faculty' | relative_url }}">Faculty</a></li>
+            <li>
+              <a href="{{ '/researchers' | relative_url }}">Researchers</a>
+            </li>
+            <li><a href="{{ '/research' | relative_url }}">Research</a></li>
+            <li>
+              <a href="{{ '/publications' | relative_url }}"
+                >Publications & Code</a
+              >
+            </li>
+            <li><a href="{{ '/news' | relative_url }}">News</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">{{ content }}</main>
+
+    <footer style="text-align: center; padding: 40px; color: #999">
+      &copy; {{ site.time | date: '%Y' }} PEATAI Lab - Case Western Reserve
+      University
+    </footer>
+  </body>
+</html>
