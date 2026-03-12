@@ -6,51 +6,88 @@ layout: default
   <div class="profile-container">
     
     <div class="profile-header">
-      <img
-        src="{{ page.image | relative_url }}"
-        alt="{{ page.name }}"
-        class="profile-photo"
-      />
+      <img src="{{ page.image | relative_url }}" alt="{{ page.name }}" class="profile-photo" />
       <div class="profile-info">
-        <h1>{{ page.name }}</h1>
+        <h1 class="faculty-name">{{ page.name }}</h1>
         <p><strong>{{ page.role }}</strong></p>
-        <p>{{ page.email }}</p>
+        
+        <div class="contact-details">
+          <p><strong>Email:</strong> <a href="mailto:{{ page.email }}">{{ page.email }}</a></p>
+          {% if page.phone %}<p><strong>Phone:</strong> {{ page.phone }}</p>{% endif %}
+          {% if page.office %}<p><strong>Office Location:</strong> {{ page.office }}</p>{% endif %}
+        </div>
       </div>
     </div>
 
-    <div class="profile-tabs">
-      <button class="tab-btn active" onclick="openTab(event, 'statement')">
-        Statement
-      </button>
-      <button class="tab-btn" onclick="openTab(event, 'research')">
-        Research
-      </button>
-      <button class="tab-btn" onclick="openTab(event, 'students')">
-        Students/Affiliates
-      </button>
-    </div>
-
-    <div id="statement" class="tab-content show">
+    <div class="profile-main-body">
       {{ content }}
+
+      {% if page.teaching_interests %}
+        <h3 class="section-header">Teaching Information</h3>
+        <p>{{ page.teaching_interests }}</p>
+      {% endif %}
+
+      {% if page.education %}
+        <h3 class="section-header">Education</h3>
+        <ul class="styled-list">
+          {% for edu in page.education %}
+            <li>{{ edu }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if page.awards %}
+        <h3 class="section-header">Awards and Honors</h3>
+        <ul class="styled-list">
+          {% for award in page.awards %}
+            <li>{{ award }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </div>
 
-    <div id="research" class="tab-content">
-      <h3>Current Research</h3>
-      <p>{{ page.research_summary }}</p>
+    <div class="profile-tabs">
+      <button class="tab-btn active" onclick="openTab(event, 'research')">Research</button>
+      <button class="tab-btn" onclick="openTab(event, 'students')">Students/Affiliates</button>
+    </div>
+
+    <div id="research" class="tab-content show">
+      {% if page.funding %}
+        <div class="funding-highlight">
+          <strong>{{ page.funding }}</strong>
+        </div>
+      {% endif %}
+      
+      {% if page.google_scholar %}
+        <p class="scholar-line">
+          View all publications on <a href="{{ page.google_scholar }}" target="_blank">Google Scholar</a>.
+        </p>
+      {% endif %}
+      
+      {% if page.research_areas %}
+        <h3 class="section-header">Research Areas</h3>
+        <div class="research-bubbles">
+          {% for area in page.research_areas %}
+            <span class="bubble">{{ area }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if page.research_summary %}
+        <h3 class="section-header">Current Research Overview</h3>
+        <p>{{ page.research_summary }}</p>
+      {% endif %}
     </div>
 
     <div id="students" class="tab-content">
-      <h3>Advisees & Collaborators</h3>
+      <h3 class="section-header">Advisees & Collaborators</h3>
       <div class="people-grid researchers">
         {% for student_id in page.students %}
           {% assign student = site.people | where: "slug", student_id | first %}
           {% if student %}
             <a href="{{ student.url | relative_url }}" class="person-card">
               <div class="image-wrapper">
-                <img
-                  src="{{ student.image | relative_url }}"
-                  alt="{{ student.name }}"
-                />
+                <img src="{{ student.image | relative_url }}" alt="{{ student.name }}" />
               </div>
               <div class="person-info">
                 <h3>{{ student.name }}</h3>
@@ -61,25 +98,21 @@ layout: default
         {% endfor %}
       </div>
     </div>
-
-    <script>
-      function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        // Hide all tab content
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].classList.remove("show");
-        }
-        // Remove 'active' class from all buttons
-        tablinks = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].classList.remove("active");
-        }
-        // Show current tab and add active class to the button
-        document.getElementById(tabName).classList.add("show");
-        evt.currentTarget.classList.add("active");
-      }
-    </script>
-
   </div>
 </div>
+
+<script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].classList.remove("show");
+    }
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].classList.remove("active");
+    }
+    document.getElementById(tabName).classList.add("show");
+    evt.currentTarget.classList.add("active");
+  }
+</script>
