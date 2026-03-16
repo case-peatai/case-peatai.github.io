@@ -10,15 +10,7 @@ title: Researchers
     <div class="people-grid researchers">
       {% assign researchers = site.people | where: "type", "researcher" %}
       {% for person in researchers %}
-        <a href="{{ person.url | relative_url }}" class="person-card">
-          <div class="image-wrapper">
-            <img src="{{ person.image | relative_url }}" alt="{{ person.name }}">
-          </div>
-          <div class="person-info">
-            <h3>{{ person.name }}</h3>
-            <p>{{ person.role }}</p>
-          </div>
-        </a>
+        {% include person-card-circular.html person=person %}
       {% endfor %}
     </div>
   </div>

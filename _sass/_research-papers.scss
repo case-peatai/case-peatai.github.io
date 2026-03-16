@@ -1,0 +1,283 @@
+// Research Paper Card Styles
+.research-paper-card {
+  background: #fff;
+  border: 1px solid $light-gray;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .paper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 12px;
+
+    .paper-title {
+      flex: 1;
+      color: $cwru-blue;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .paper-year {
+      background: $cwru-light-blue;
+      color: $cwru-blue;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+  }
+
+  .paper-meta {
+    margin-bottom: 15px;
+
+    p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .paper-authors {
+      font-style: italic;
+      color: #666;
+    }
+
+    .paper-journal,
+    .paper-conference {
+      color: $cwru-blue;
+      font-weight: 500;
+    }
+  }
+
+  .paper-abstract {
+    margin-bottom: 15px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-left: 3px solid $cwru-light-blue;
+    border-radius: 0 4px 4px 0;
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.6;
+    }
+  }
+
+  .paper-research-areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+
+    .research-area-tag {
+      display: inline-block;
+      background: $bg-ghost;
+      color: $cwru-blue;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid $light-gray;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: $cwru-blue;
+        color: $white;
+      }
+    }
+  }
+
+  .paper-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 12px;
+    border-top: 1px solid $light-gray;
+
+    .paper-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: $cwru-blue;
+      color: $white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        stroke-width: 2;
+      }
+
+      &:hover {
+        background: $cwru-true-blue;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      &.pdf-link {
+        background: #d32f2f;
+
+        &:hover {
+          background: #b71c1c;
+        }
+      }
+
+      &.arxiv-link {
+        background: #b31b1b;
+
+        &:hover {
+          background: #8b0000;
+        }
+      }
+
+      &.external-link {
+        background: #666;
+
+        &:hover {
+          background: #444;
+        }
+      }
+    }
+  }
+}
+
+// Papers grouped by research area
+.papers-by-area {
+  margin-bottom: 40px;
+
+  .area-heading {
+    color: $cwru-blue;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $light-gray;
+  }
+
+  .papers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    .research-paper-card {
+      margin-bottom: 0;
+      border-top: none;
+      border-bottom: 1px solid $light-gray;
+      padding: 20px 0;
+      border-radius: 0;
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      &:hover {
+        background: transparent;
+        transform: none;
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+// Filter controls for papers
+.paper-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+
+  .filter-btn {
+    padding: 8px 16px;
+    background: $light-gray;
+    color: $cwru-blue;
+    border: 2px solid $light-gray;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: $cwru-blue;
+      background: transparent;
+    }
+
+    &.active {
+      background: $cwru-blue;
+      color: $white;
+      border-color: $cwru-blue;
+    }
+  }
+
+  .filter-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: $cwru-blue;
+    margin-right: 10px;
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .research-paper-card {
+    padding: 16px;
+
+    .paper-header {
+      flex-direction: column;
+      gap: 8px;
+
+      .paper-title {
+        font-size: 1rem;
+      }
+
+      .paper-year {
+        align-self: flex-start;
+      }
+    }
+
+    .paper-links {
+      gap: 8px;
+      padding: 4 8px;
+
+      .paper-link {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .paper-filters {
+    flex-direction: column;
+
+    .filter-btn {
+      width: 100%;
+    }
+  }
+}

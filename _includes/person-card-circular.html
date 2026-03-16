@@ -1,0 +1,10 @@
+<a href="{{ include.person.url | relative_url }}" class="person-card person-card-circular">
+  <div class="image-wrapper">
+    <img src="{{ include.person.image | relative_url }}" alt="{{ include.person.name }}">
+  </div>
+
+  <div class="person-info">
+    <h3>{{ include.person.name }}</h3>
+    <p>{{ include.person.role }}</p>
+  </div>
+</a>

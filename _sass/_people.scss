@@ -1,35 +1,68 @@
 // Grid & Card Styles for People Pages
+/* People Grid Layout */
+
 .people-grid {
   display: grid;
   gap: 30px;
   margin-top: 40px;
+}
 
-  &.faculty {
-    grid-template-columns: repeat(3, 1fr); // 3-column
-    .image-wrapper { aspect-ratio: 1 / 1.25; }
-  }
+.people-grid.faculty {
+  grid-template-columns: repeat(3, 1fr);
+}
 
-  &.researchers {
-    grid-template-columns: repeat(4, 1fr); // 4-column
-    gap: 20px;
-    .person-card .image-wrapper {
-      aspect-ratio: 1 / 1;
-      max-width: 200px;
-      margin: 0 auto 15px;
-      border-radius: 50%; // Circular student headshots
-    }
-    h3, p { text-align: center; }
-  }
+.people-grid.researchers {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
 
-  .person-card {
-    text-decoration: none;
-    .image-wrapper {
-      background: $light-gray;
-      overflow: hidden;
-      border: 1px solid #eee;
-      img { width: 100%; height: 100%; object-fit: cover; }
-    }
-    h3 { color: $cwru-blue; margin-bottom: 5px; }
-    p { color: $dark-gray; font-size: 0.9rem; }
-  }
+
+/* Base Person Card */
+
+.person-card {
+  text-decoration: none;
+}
+
+.person-card h3 {
+  color: $cwru-blue;
+  margin-bottom: 5px;
+}
+
+.person-card p {
+  color: $dark-gray;
+  font-size: 0.9rem;
+}
+
+.person-card .image-wrapper {
+  background: $light-gray;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+.person-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Faculty Square Cards */
+
+.person-card-square .image-wrapper {
+  aspect-ratio: 1 / 1.25;
+}
+
+
+/* Circular Researcher Cards */
+
+.person-card-circular .image-wrapper {
+  aspect-ratio: 1 / 1;
+  max-width: 200px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+}
+
+.person-card-circular h3,
+.person-card-circular p {
+  text-align: center;
 }

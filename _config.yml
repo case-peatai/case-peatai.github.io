@@ -32,6 +32,9 @@ collections:
   people:
     output: true
     permalink: /team/:path/
+  papers:
+      output: false
+      sort_by: year
     
 liquid:
   error_mode: strict

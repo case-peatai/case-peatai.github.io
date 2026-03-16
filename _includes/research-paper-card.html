@@ -1,0 +1,62 @@
+<div class="research-paper-card">
+  <div class="paper-header">
+    <h3 class="paper-title">{{ include.paper.title }}</h3>
+    {% if include.paper.year %}
+    <span class="paper-year">{{ include.paper.year }}</span>
+    {% endif %}
+  </div>
+
+  <div class="paper-meta">
+    {% if include.paper.authors %}
+    <p class="paper-authors">{{ include.paper.authors }}</p>
+    {% endif %}
+    
+    {% if include.paper.journal %}
+    <p class="paper-journal"><strong>{{ include.paper.journal }}</strong></p>
+    {% endif %}
+    
+    {% if include.paper.conference %}
+    <p class="paper-conference"><strong>{{ include.paper.conference }}</strong></p>
+    {% endif %}
+  </div>
+
+  <div class="paper-abstract">
+    {% if include.paper.abstract %}
+    <p>{{ include.paper.abstract }}</p>
+    {% endif %}
+  </div>
+
+  <div class="paper-research-areas">
+    {% if include.paper.research_areas %}
+    {% for area in include.paper.research_areas %}
+    <span class="research-area-tag">{{ area }}</span>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="paper-links">
+    {% if include.paper.pdf_url %}
+    <a href="{{ include.paper.pdf_url }}" class="paper-link pdf-link" target="_blank" title="Download PDF">
+      <i data-lucide="file-text"></i> PDF
+    </a>
+    {% endif %}
+
+    {% if include.paper.doi %}
+    <a href="https://doi.org/{{ include.paper.doi }}" class="paper-link doi-link" target="_blank" title="View on DOI">
+      <i data-lucide="external-link"></i> DOI
+    </a>
+    {% endif %}
+
+    {% if include.paper.arxiv %}
+    <a href="https://arxiv.org/abs/{{ include.paper.arxiv }}" class="paper-link arxiv-link" target="_blank" title="View on arXiv">
+      <i data-lucide="external-link"></i> arXiv
+    </a>
+    {% endif %}
+
+    {% if include.paper.url %}
+    <a href="{{ include.paper.url }}" class="paper-link external-link" target="_blank" title="View Online">
+      <i data-lucide="external-link"></i> View
+    </a>
+    {% endif %}
+  </div>
+</div>

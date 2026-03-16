@@ -6,6 +6,7 @@ role: "PhD Student"
 image: "/assets/images/default_avatar.avif"
 email: "one@case.edu"
 research_summary: "Working on agentic AI workflows."
-students_list: "N/A"
+mentors:
+  - vipin-chaudhary
 ---
 This is Researcher One's bio statement.

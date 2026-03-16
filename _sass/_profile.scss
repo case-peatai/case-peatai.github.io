@@ -2,157 +2,226 @@
 // profile page styles
 
 .profile-container {
-    margin-top: 50px;
-    
-    // 1. Header & Branding
-    .profile-header {
+  margin-top: 50px;
+
+  // 1. Header & Branding
+  .profile-header {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+
+    .profile-photo {
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .faculty-name {
+      color: $cwru-blue;
+      margin-bottom: 5px;
+      font-size: 2.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 0.7rem;
+      align-items: center;
+
+      a {
+        color: $cwru-blue;
+        transition:
+          color 0.2s ease,
+          transform 0.2s ease;
         display: flex;
-        gap: 30px;
-        margin-bottom: 40px;
-        
-        .profile-photo {
-            width: 200px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        align-items: center;
+
+        &:hover {
+          color: $cwru-true-blue;
+          transform: translateY(-2px);
         }
 
-        .faculty-name {
-            color: $cwru-blue; 
-            margin-bottom: 5px;
-            font-size: 2.5rem;
+        svg {
+          width: 25px;
+          height: 25px;
+          stroke-width: 2px;
         }
+      }
+    }
 
-        .contact-details {
-            margin-top: 15px;
-            p { 
-                margin: 4px 0; 
-                font-size: 1rem;
-                strong { color: #555; }
-            }
-            a { 
-                color: $cwru-blue;
-                text-decoration: none;
-                &:hover { text-decoration: underline; }
-            }
+    /* External link arrow styling */
+    .external-link-icon {
+      margin-left: 0.35rem;
+      color: $cwru-blue;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $cwru-true-blue;
+      }
+
+      svg {
+        width: 0.85rem;
+        height: 0.85rem;
+        vertical-align: middle;
+      }
+    }
+
+    .contact-details {
+      margin-top: 15px;
+      p {
+        margin: 4px 0;
+        font-size: 1rem;
+        strong {
+          color: #555;
         }
-    }
-
-    // 2. Main Body Content (Teaching, Education, Awards)
-    .profile-main-body {
-        margin: 30px 0 50px 0;
-
-        .section-header {
-            color: $cwru-blue; 
-            font-weight: 700;
-            margin-top: 35px;
-            border-bottom: 2px solid $light-gray;
-            padding-bottom: 8px;
+      }
+      a {
+        color: $cwru-blue;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
         }
+      }
+    }
+  }
 
-        .styled-list {
-            padding-left: 20px;
-            margin-top: 15px;
-            li { margin-bottom: 10px; line-height: 1.5; }
-        }
+  // 2. Main Body Content (Teaching, Education, Awards)
+  .profile-main-body {
+    margin: 30px 0 50px 0;
+
+    .section-header {
+      color: $cwru-blue;
+      font-weight: 700;
+      margin-top: 35px;
+      border-bottom: 2px solid $light-gray;
+      padding-bottom: 8px;
     }
 
-    // 3. Two-Tab Navigation System
-    .profile-tabs {
-        border-bottom: 2px solid $light-gray;
-        margin-bottom: 30px;
-        display: flex;
-        gap: 5px;
-
-        .tab-btn {
-            background: #f1f1f1;
-            border: none;
-            padding: 12px 25px;
-            cursor: pointer;
-            font-weight: 600;
-            border-radius: 4px 4px 0 0;
-            transition: all 0.3s ease;
-
-            &.active {
-                background: $cwru-blue;
-                color: $white;
-            }
-
-            &:hover:not(.active) {
-                background: $light-gray;
-            }
-        }
+    .styled-list {
+      padding-left: 20px;
+      margin-top: 15px;
+      li {
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
     }
+  }
 
-    .tab-content {
-        display: none;
-        animation: fadeIn 0.4s ease;
-        &.show { display: block; }
+  // 3. Two-Tab Navigation System
+  .profile-tabs {
+    border-bottom: 2px solid $light-gray;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 5px;
+
+    .tab-btn {
+      background: #f1f1f1;
+      border: none;
+      padding: 12px 25px;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 4px 4px 0 0;
+      transition: all 0.3s ease;
+
+      &.active {
+        background: $cwru-blue;
+        color: $white;
+      }
+
+      &:hover:not(.active) {
+        background: $light-gray;
+      }
     }
+  }
 
-    // 4. Research Tab Components
-    .funding-highlight {
-        background: lighten($cwru-light-blue, 15%); // Branding
-        border-left: 5px solid $cwru-blue;
-        padding: 20px;
-        margin-bottom: 30px;
-        border-radius: 0 8px 8px 0;
-        font-size: 1.1rem;
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+    &.show {
+      display: block;
     }
+  }
 
-    .scholar-line {
-        font-size: 1.1rem;
-        margin: 20px 0;
-        font-weight: 500;
-        a { color: $cwru-blue; font-weight: 700; }
+  // 4. Research Tab Components
+  .funding-highlight {
+    background: lighten($cwru-light-blue, 15%);
+    border-left: 5px solid $cwru-blue;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 0 8px 8px 0;
+    font-size: 1.1rem;
+  }
+
+  .scholar-line {
+    font-size: 1.1rem;
+    margin: 20px 0;
+    font-weight: 500;
+    a {
+      color: $cwru-blue;
+      font-weight: 700;
     }
+  }
 
-    // Research Widgets/Bubbles
-    .research-bubbles {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin: 20px 0;
+  // Research Widgets/Bubbles
+  .research-bubbles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
 
-        .bubble {
-            background: $bg-ghost;
-            color: $cwru-blue;
-            border: 1px solid $light-gray;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            cursor: default;
+    .bubble {
+      background: $bg-ghost;
+      color: $cwru-blue;
+      border: 1px solid $light-gray;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: default;
 
-            &:hover {
-                background: $cwru-blue;
-                color: $white;
-                transform: translateY(-2px);
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            }
-        }
+      &:hover {
+        background: $cwru-blue;
+        color: $white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
     }
+  }
 }
 
 // Mobile Responsiveness
 @media (max-width: 768px) {
-    .profile-container {
-        .profile-header {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .profile-tabs {
-            flex-direction: column;
-            .tab-btn { border-radius: 4px; margin-bottom: 2px; }
-        }
+  .profile-container {
+    .profile-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
+    
+    .social-links {
+      justify-content: center;
+    }
+
+    .profile-tabs {
+      flex-direction: column;
+      .tab-btn {
+        border-radius: 4px;
+        margin-bottom: 2px;
+      }
+    }
+  }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
