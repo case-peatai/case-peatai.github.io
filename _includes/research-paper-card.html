@@ -9,14 +9,12 @@
   <div class="paper-meta">
     {% if include.paper.authors %}
     <p class="paper-authors">{{ include.paper.authors }}</p>
-    {% endif %}
-    
-    {% if include.paper.journal %}
+    {% endif %} {% if include.paper.journal %}
     <p class="paper-journal"><strong>{{ include.paper.journal }}</strong></p>
-    {% endif %}
-    
-    {% if include.paper.conference %}
-    <p class="paper-conference"><strong>{{ include.paper.conference }}</strong></p>
+    {% endif %} {% if include.paper.conference %}
+    <p class="paper-conference">
+      <strong>{{ include.paper.conference }}</strong>
+    </p>
     {% endif %}
   </div>
 
@@ -27,35 +25,48 @@
   </div>
 
   <div class="paper-research-areas">
-    {% if include.paper.research_areas %}
-    {% for area in include.paper.research_areas %}
+    {% if include.paper.research_areas %} {% for area in
+    include.paper.research_areas %}
     <span class="research-area-tag">{{ area }}</span>
-    {% endfor %}
-    {% endif %}
+    {% endfor %} {% endif %}
   </div>
 
   <div class="paper-links">
     {% if include.paper.pdf_url %}
-    <a href="{{ include.paper.pdf_url }}" class="paper-link pdf-link" target="_blank" title="Download PDF">
-      <i data-lucide="file-text"></i> PDF
+    <a
+      href="{{ include.paper.pdf_url }}"
+      class="paper-link pdf-link"
+      target="_blank"
+      title="Download PDF"
+    >
+      {% include icons/file-text.svg %} PDF
     </a>
-    {% endif %}
-
-    {% if include.paper.doi %}
-    <a href="https://doi.org/{{ include.paper.doi }}" class="paper-link doi-link" target="_blank" title="View on DOI">
-      <i data-lucide="external-link"></i> DOI
+    {% endif %} {% if include.paper.doi %}
+    <a
+      href="https://doi.org/{{ include.paper.doi }}"
+      class="paper-link doi-link"
+      target="_blank"
+      title="View on DOI"
+    >
+      {% include icons/external-link.svg %} DOI
     </a>
-    {% endif %}
-
-    {% if include.paper.arxiv %}
-    <a href="https://arxiv.org/abs/{{ include.paper.arxiv }}" class="paper-link arxiv-link" target="_blank" title="View on arXiv">
-      <i data-lucide="external-link"></i> arXiv
+    {% endif %} {% if include.paper.arxiv %}
+    <a
+      href="https://arxiv.org/abs/{{ include.paper.arxiv }}"
+      class="paper-link arxiv-link"
+      target="_blank"
+      title="View on arXiv"
+    >
+      {% include icons/external-link.svg %} arXiv
     </a>
-    {% endif %}
-
-    {% if include.paper.url %}
-    <a href="{{ include.paper.url }}" class="paper-link external-link" target="_blank" title="View Online">
-      <i data-lucide="external-link"></i> View
+    {% endif %} {% if include.paper.url %}
+    <a
+      href="{{ include.paper.url }}"
+      class="paper-link external-link"
+      target="_blank"
+      title="View Online"
+    >
+      {% include icons/external-link.svg %} View
     </a>
     {% endif %}
   </div>

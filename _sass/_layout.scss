@@ -1,5 +1,23 @@
-body {
+// Breakpoints
+$bp-small:  480px;  // Phones
+$bp-medium: 768px;  // Tablets
+$bp-large:  992px;  // Desktop / Transitions
+$bp-xl:     1200px; // Large monitors
+
+// Global Box Sizing Fix: This ensures padding doesn't add to width
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; // Prevents the "white line" horizontal scroll
+}
+
+body {
   font-family: $font-main;
   color: $black;
 }
@@ -22,7 +40,10 @@ html {
   }
   
   img {
-    height: 30px; // Adjust based on your visual preference
+    height: 30px; 
+    max-width: 100%;
+    width: auto;
+    display: block;
   }
 }
 
@@ -33,7 +54,6 @@ html {
   border-bottom: 1px solid $light-gray;
   padding: 10px 0;
   width: 100%; 
-  box-sizing: border-box;
   
   .container {
     max-width: 1400px; 
@@ -43,7 +63,6 @@ html {
     align-items: center; 
     padding: 0 20px;
     position: relative; 
-    box-sizing: border-box; 
   }
 
   .lab-logo img {
@@ -84,11 +103,10 @@ html {
       color: $cwru-blue;
       transition: all 0.25s ease;
 
-      // The High-Contrast Highlight
       &:hover {
         background: $cwru-blue; 
         border-color: $cwru-blue; 
-        color: $white;         
+        color: $white;          
         transform: translateY(-1px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
@@ -103,16 +121,14 @@ html {
 
   .nav-toggle { display: none; }
 
-  // --- HAMBURGER DRAWING LOGIC ---
   .nav-toggle-label {
-    display: none; // Hidden on desktop
+    display: none; 
     cursor: pointer;
     padding: 10px;
     
-    // The three lines of the burger
     span, span::before, span::after {
       display: block;
-      background: $cwru-blue; // Using brand variable
+      background: $cwru-blue; 
       height: 3px;
       width: 30px;
       border-radius: 2px;
@@ -123,12 +139,19 @@ html {
   }
 }
 
-// --- Mobile/Tablet Responsive (Below 992px) ---
-@media screen and (max-width: 992px) {
+// --- Mobile/Tablet Responsive (Using Variable) ---
+@media screen and (max-width: $bp-large) {
+  .university-header {
+    img {
+      height: 20px; // Shrink the height slightly for mobile
+    }
+  }
+
   .lab-header {
     padding: 15px 0;
 
-    lab-logo img {
+    // Corrected selector with dot
+    .lab-logo img {
       height: 60px;
     }
     
@@ -143,10 +166,8 @@ html {
       position: absolute;
       top: 100%;
       left: 0;
+      right: 0; // Ensures it snaps to edges correctly
       background: $white;
-      width: 100%;
-      max-width: 100vw;
-      box-sizing: border-box;
       transform: scale(1, 0); 
       transform-origin: top;
       transition: transform 400ms ease-in-out;
@@ -181,13 +202,15 @@ html {
       transform: scale(1, 1); 
     }
   }
-}
 
+  .main-content {
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+}
 
 .main-content {
   max-width: 1250px;
   margin: 40px auto;
   padding: 0 20px;
 }
-
-

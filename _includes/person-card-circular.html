@@ -1,6 +1,12 @@
 <a href="{{ include.person.url | relative_url }}" class="person-card person-card-circular">
   <div class="image-wrapper">
-    <img src="{{ include.person.image | relative_url }}" alt="{{ include.person.name }}">
+    {% if include.person.image %}
+      <img src="{{ include.person.image | relative_url }}" alt="{{ include.person.name }}">
+    {% else %}
+      <img src="{{ '/assets/images/default_avatar.avif' | relative_url }}" alt="{{ include.person.name }}">
+    {% endif %}
+    
+    <span class="name-overlay" style="display: none;">{{ include.person.name }}</span>
   </div>
 
   <div class="person-info">

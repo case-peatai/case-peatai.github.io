@@ -5,11 +5,19 @@ layout: default
 <div class="main-content">
   <div class="profile-container">
     <div class="profile-header">
+      {% if page.image %}
       <img
         src="{{ page.image | relative_url }}"
         alt="{{ page.name }}"
         class="profile-photo"
       />
+      {% else %}
+      <img
+        src="{{ '/assets/images/default_avatar.avif' | relative_url }}"
+        alt="{{ page.name }}"
+        class="profile-photo"
+      />
+      {% endif %}
       <div class="profile-info">
         <h1 class="faculty-name">{{ page.name }}</h1>
         <p>
@@ -21,7 +29,7 @@ layout: default
             class="external-link-icon"
             title="View Department Page"
           >
-            <i data-lucide="external-link"></i>
+            {% include icons/external-link.svg %}
           </a>
           {% endif %}
         </p>
@@ -40,27 +48,56 @@ layout: default
 
         <div class="social-links">
           {% if page.twitter %}
-          <a href="{{ page.twitter }}" target="_blank" title="Twitter"
-            ><i data-lucide="twitter"></i
-          ></a>
+          <a href="{{ page.twitter }}" target="_blank" title="Twitter">
+            {% include icons/twitter.svg %}
+          </a>
           {% endif %} {% if page.linkedin %}
-          <a href="{{ page.linkedin }}" target="_blank" title="LinkedIn"
-            ><i data-lucide="linkedin"></i
-          ></a>
+          <a href="{{ page.linkedin }}" target="_blank" title="LinkedIn">
+            {% include icons/linkedin.svg %}
+          </a>
           {% endif %} {% if page.google_scholar %}
           <a
             href="{{ page.google_scholar }}"
             target="_blank"
             title="Google Scholar"
-            ><i data-lucide="graduation-cap"></i
-          ></a>
+          >
+            {% include icons/graduation-cap.svg %}
+          </a>
           {% endif %}
         </div>
       </div>
     </div>
 
     <div class="profile-main-body">
-      {{ content }} {% if page.teaching_interests %}
+      {% if page.short_bio or page.full_bio %}
+      <div class="bio-bubble">
+        {% if page.short_bio and page.full_bio %}
+        <div class="bio-toggle-header">
+          <button
+            class="bio-toggle-btn active"
+            onclick="toggleBioContent('short')"
+          >
+            Brief Bio
+          </button>
+          <button class="bio-toggle-btn" onclick="toggleBioContent('full')">
+            Full Bio
+          </button>
+        </div>
+        {% endif %}
+
+        <div id="bio-content-area">
+          <div id="short-bio-text" class="bio-text">
+            {{ page.short_bio | markdownify }}
+          </div>
+
+          {% if page.full_bio %}
+          <div id="full-bio-text" class="bio-text" style="display: none">
+            {{ page.full_bio | markdownify }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %} {% if page.teaching_interests %}
       <h3 class="section-header">Teaching Information</h3>
       <p>{{ page.teaching_interests }}</p>
       {% endif %} {% if page.education %}
@@ -87,94 +124,84 @@ layout: default
       <button class="tab-btn" onclick="openTab(event, 'team')">Team</button>
     </div>
 
- <div id="research" class="tab-content show">
-      {% if page.funding %}
+    <div id="research" class="tab-content show">
+      {% if page.research_summary %}
+      <div
+        class="research-intro-text"
+        style="margin-bottom: 2rem; line-height: 1.6"
+      >
+        {{ page.research_summary | markdownify }}
+      </div>
+      {% endif %} {% if page.funding %}
       <div class="funding-highlight">
         <strong>{{ page.funding }}</strong>
       </div>
-      {% endif %}
- 
-      {% if page.google_scholar %}
-      <p class="scholar-line">
-        View all publications on
-        <a href="{{ page.google_scholar }}" target="_blank">Google Scholar</a>.
-      </p>
-      {% endif %}
- 
-      <!-- RESEARCH OVERVIEW - First -->
-      {% if page.research_summary %}
-      <h3 class="section-header">Research Overview</h3>
-      <p>{{ page.research_summary }}</p>
-      {% endif %}
- 
-      <!-- SELECTED PUBLICATIONS - Third -->
-      {% if page.papers %}
-      <h3 class="section-header">Selected Publications</h3>
-      
-      <!-- Filter buttons for papers on profile -->
-      <div class="paper-filters" style="margin-bottom: 20px;">
+      {% endif %} {% if page.papers %}
+      <div class="paper-filters" style="margin-bottom: 20px">
         <span class="filter-label">Filter:</span>
-        <button class="filter-btn active" onclick="filterProfilePapers('all')">All</button>
-        {% if page.research_areas %}
-          {% for area in page.research_areas %}
-          <button class="filter-btn" onclick="filterProfilePapers('{{ area | slugify }}')">{{ area }}</button>
-          {% endfor %}
-        {% endif %}
+        <button class="filter-btn active" onclick="filterProfilePapers('all')">
+          All
+        </button>
+        {% if page.research_areas %} {% for area in page.research_areas %}
+        <button
+          class="filter-btn"
+          onclick="filterProfilePapers('{{ area | slugify }}')"
+        >
+          {{ area }}
+        </button>
+        {% endfor %} {% endif %}
       </div>
- 
+      
       <div class="selected-papers">
-        {% for paper_slug in page.papers %}
-          {% assign paper = site.papers | where: "name", paper_slug | first %}
-          {% if paper %}
-            <div class="paper-item" data-areas="{% for area in paper.research_areas %}{{ area | slugify }}|{% endfor %}">
-              {% include research-paper-card.html paper=paper %}
-            </div>
-          {% endif %}
-        {% endfor %}
+        {% for paper_slug in page.papers %} {% assign paper = site.papers |
+        where: "name", paper_slug | first %} {% if paper %}
+        <div
+          class="paper-item"
+          data-areas="{% for area in paper.research_areas %}{{ area | slugify }}|{% endfor %}"
+        >
+          {% include research-paper-card.html paper=paper %}
+        </div>
+        {% endif %} {% endfor %}
       </div>
       {% endif %}
     </div>
 
     <div id="team" class="tab-content">
-      {% assign faculty_members = site.people | where: "type", "faculty" %} {%
-      assign researcher_members = site.people | where: "type", "researcher" %}
       <!-- FACULTY VIEW: Auto-generate students -->
-      {% if page.type == "faculty" %} {% assign team_members =
-      researcher_members | where_exp: "person", "person.mentors contains
-      page.slug" %}{% if team_members.size > 0 %}
-      <h4 class="subsection-header">Students</h4>
+      {% if page.type == "faculty" %} {% assign all_members = site.people |
+      where_exp: "p", "p.mentors contains page.slug" %} {% assign level_order =
+      "STAFF,PHD,MS,UG" | split: "," %} {% for level_code in level_order %} {%
+      assign level_group = all_members | where: "level", level_code %} {% if
+      level_group.size > 0 %}
+      <h4 class="subsection-header">
+        {% case level_code %} {% when 'STAFF' %}Research Staff {% when 'PHD'
+        %}PhD Students {% when 'MS' %}Master's Students {% when 'UG'
+        %}Undergraduate Students {% endcase %}
+      </h4>
 
       <div class="people-grid researchers">
-        {% for member in team_members %} {% include person-card-circular.html
+        {% for member in level_group %} {% include person-card-circular.html
         person=member %} {% endfor %}
       </div>
-      {% endif %} {% endif %}
-
+      {% endif %} {% endfor %} {% endif %}
       <!-- STUDENT VIEW: Show mentors -->
-      {% if page.type == "student" and page.mentors %}
-
+      {% if page.type != "faculty" and page.mentors %}
       <h4 class="subsection-header">Mentors</h4>
-
       <div class="people-grid researchers">
         {% for mentor_id in page.mentors %} {% assign mentor = site.people |
         where: "slug", mentor_id | first %} {% if mentor %} {% include
         person-card-circular.html person=mentor %} {% endif %} {% endfor %}
       </div>
-
       {% endif %}
-
       <!-- STUDENT OR FACULTY VIEW: Manual collaborators -->
       {% if page.collaborators %}
-
       <h4 class="subsection-header">Collaborators</h4>
-
       <div class="people-grid researchers">
-        {% for collaborator_id in page.collaborators %} {% assign collaborator =
-        site.people | where: "slug", collaborator_id | first %} {% if
-        collaborator %} {% include person-card-circular.html person=collaborator
-        %} {% endif %} {% endfor %}
+        {% for collab_id in page.collaborators %} {% assign collaborator =
+        site.people | where: "slug", collab_id | first %} {% if collaborator %}
+        {% include person-card-circular.html person=collaborator %} {% endif %}
+        {% endfor %}
       </div>
-
       {% endif %}
     </div>
   </div>
@@ -195,34 +222,53 @@ layout: default
     evt.currentTarget.classList.add("active");
   }
   function filterProfilePapers(filter) {
-  console.log('Profile filtering by: ' + filter);
-  
-  // Update button styling
-  const buttons = document.querySelectorAll('.paper-filters .filter-btn');
-  buttons.forEach(btn => {
-    btn.classList.remove('active');
-  });
-  
-  // Find and activate the clicked button
-  event.target.classList.add('active');
-  
-  // Get all paper items in the research tab
-  const papers = document.querySelectorAll('.selected-papers .paper-item');
-  
-  console.log('Found ' + papers.length + ' papers');
-  
-  // Loop through all papers
-  papers.forEach(paper => {
-    const areas = paper.getAttribute('data-areas');
-    
-    // Show or hide based on filter
-    if (filter === 'all') {
-      paper.classList.remove('hidden-paper');
-    } else if (areas.includes(filter)) {
-      paper.classList.remove('hidden-paper');
+    console.log("Profile filtering by: " + filter);
+
+    // Update button styling
+    const buttons = document.querySelectorAll(".paper-filters .filter-btn");
+    buttons.forEach((btn) => {
+      btn.classList.remove("active");
+    });
+
+    // Find and activate the clicked button
+    event.target.classList.add("active");
+
+    // Get all paper items in the research tab
+    const papers = document.querySelectorAll(".selected-papers .paper-item");
+
+    console.log("Found " + papers.length + " papers");
+
+    // Loop through all papers
+    papers.forEach((paper) => {
+      const areas = paper.getAttribute("data-areas");
+
+      // Show or hide based on filter
+      if (filter === "all") {
+        paper.classList.remove("hidden-paper");
+      } else if (areas.includes(filter)) {
+        paper.classList.remove("hidden-paper");
+      } else {
+        paper.classList.add("hidden-paper");
+      }
+    });
+  }
+
+  function toggleBioContent(version) {
+    const shortText = document.getElementById("short-bio-text");
+    const fullText = document.getElementById("full-bio-text");
+    const buttons = document.querySelectorAll(".bio-toggle-btn");
+
+    // Update Buttons
+    buttons.forEach((btn) => btn.classList.remove("active"));
+    event.currentTarget.classList.add("active");
+
+    // Switch Text
+    if (version === "short") {
+      shortText.style.display = "block";
+      fullText.style.display = "none";
     } else {
-      paper.classList.add('hidden-paper');
+      shortText.style.display = "none";
+      fullText.style.display = "block";
     }
-  });
-}
+  }
 </script>
