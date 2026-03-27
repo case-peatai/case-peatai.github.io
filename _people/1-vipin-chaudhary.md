@@ -3,8 +3,8 @@ layout: profile
 name: "Vipin Chaudhary, PhD"
 type: "faculty"
 slug: vipin-chaudhary
-role: "Kevin J. Kranzusch Chair, Dept. of Computer and Data Sciences, <br> Center for PEATAI, Case School of Engineering"
-dept_url:  "https://case.edu/engineering/about/faculty-and-staff-directory/vipin-chaudhary"
+role: "Kevin J. Kranzusch Chair, Computer and Data Sciences, <br> Center for PEATAI, Case School of Engineering"
+dept_url:  "https://engineering.case.edu/computer-and-data-sciences"
 image: "/assets/images/Vipin Chaudhary.avif"
 email: "vipin@case.edu"
 phone: "216.368.0171"
@@ -13,25 +13,50 @@ twitter: "https://x.com/vchaudhary"
 linkedin: "https://www.linkedin.com/in/vipin-chaudhary-379529/"
 google_scholar: "https://scholar.google.com/citations?user=WFdYhxMAAAAJ&hl=en"
 funding: "Over $80M in external research funding."
+
 research_areas:
   - "High Performance Computing"
   - "Artificial Intelligence"
-  - "Applications of AI"
   - "Quantum Computing"
-  - "Healthcare"
-research_summary: "Selected Publications since 2020 [(more on Google Scholar)](https://scholar.google.com/citations?user=WFdYhxMAAAAJ&hl=en)"
+  - "Healthcare & Medical Imaging"
+  - "Trustworthy AI"
+ 
+# Sponsored Research - External funding sources
+sponsored_research:
+  - name: "ICICLE: Intelligent CI with Computational Learning in the Environment"
+    url: "https://icicle.osu.edu/"
+ 
+# Current Projects
+projects:
+  - name: "Quantum Circuit Optimization"
+    description: "Developing efficient circuit cutting techniques for modular quantum processing units to improve throughput and reduce latency on heterogeneous quantum hardware."
+    url: "https://example.com/quantum-project"
+    related_papers:
+      - paper1
+  - name: "Trustworthy AI Framework"
+    description: "Building systems that can identify and appropriately handle atypical or out-of-distribution samples, improving reliability and robustness in real-world AI deployments."
+    url: "https://example.com/trustworthy-ai"
+    related_papers:
+      - paper2
+  - name: "Medical Imaging with AI"
+    description: "Applying zero-shot learning and video segmentation techniques to 3D medical imaging, enabling efficient diagnostic tools that require minimal computational overhead."
+    related_papers:
+      - paper-example
+ 
+research_summary: "Optional something about research" 
+publications_summary: "Selected Publications since 2020 [(more on Google Scholar)](https://scholar.google.com/citations?user=WFdYhxMAAAAJ&hl=en)"
 
 papers:
   - paper1
   - paper2
   - paper-example
 
-short_bio: |
+intro: |
   Dr. Chaudhary is the Kevin J. Kranzusch Chair and Professor of [Computer and Data Sciences](https://engineering.case.edu/computer-and-data-sciences) 
   with secondary appointments in the [Department of Electrical, Computer, and Systems Engineering](https://case.edu/engineering/electrical-computer-and-systems-engineering/), [Department of Biomedical Engineering](https://case.edu/bme/), and the [Center for Artificial Intelligence in Drug Discovery](https://case.edu/medicine/aicenter/), School of Medicine.
 
 
-full_bio: |
+bio: |
   A veteran of High-Performance Computing (HPC) and Artificial Intelligence (AI), Dr. Chaudhary has been actively participating in the science, business, government, and technology innovation frontiers of HPC and AI for almost four decades. His contributions range from heading research laboratories and holding executive management positions, to starting new technology ventures. He is currently the Kevin J. Kranzusch inaugural Chair of the Department of Computer and Data Sciences at Case Western Reserve University, and his current research is focused on HPC, Artificial Intelligence and its applications, Quantum Computing and Healthcare.
 
   Previously he was a Program Director in the Office of Advanced Cyberinfrastructure at National Science Foundation where he co-led the National Strategic Computing Initiative from NSF for the United States and was in the working group of the Quantum Leap Initiative, National Quantum Initiative, National Artificial Intelligence Research Institutes, Cyber, and the I-Corps Program (where he was also a Program Director). I-Corps program is now part of “The American Innovation and Competitiveness Act” that enables commercialization of research and venture startups. He co-chaired the Networking and Information Technology Research and Technology Program’s Middleware and Grid Interagency Coordination (MAGIC) Team for the United States.  He was also in the working group of the US Interagency Modeling and Analysis Group and a member of the Advanced Computing Roundtable of the Council on Competitiveness. He was awarded the NSF Director’s Superior Accomplishment Award in 2019.

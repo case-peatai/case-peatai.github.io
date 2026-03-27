@@ -1,5 +1,6 @@
 ---
 title: "Trust the Typical: Leveraging Typicality for Trustworthy AI"
+name: "paper2"
 year: 2026
 authors: "Debargha Ganguly, Srihari Sankar, Biyao Zhang, Vikash Singh, Kanan Gupta, Harshini Kavuru, Alan Luo, Weicong Chen, Warren Morningstar, Raghu Machiraju, Vipin Chaudhary"
 conference: "14th International Conference on Learning Representations (ICLR)"

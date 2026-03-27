@@ -1,0 +1,119 @@
+// Publications Page Filters Styling
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.paper-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+
+  .filter-label {
+    display: inline-block;
+    font-weight: 600;
+    color: $cwru-blue;
+    margin-right: 10px;
+    white-space: nowrap;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    background: $light-gray;
+    color: $cwru-blue;
+    border: 2px solid $light-gray;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: $cwru-blue;
+      background: transparent;
+    }
+
+    &.active {
+      background: $cwru-blue;
+      color: $white;
+      border-color: $cwru-blue;
+    }
+  }
+}
+
+.year-filter-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .filter-label {
+    font-weight: 600;
+    color: $cwru-blue;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .year-select {
+    padding: 8px 14px;
+    background: $white;
+    color: $cwru-blue;
+    border: 2px solid $light-gray;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 140px;
+
+    &:hover {
+      border-color: $cwru-blue;
+      box-shadow: 0 2px 8px rgba(0, 61, 130, 0.1);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $cwru-blue;
+      box-shadow: 0 0 0 3px rgba(0, 61, 130, 0.1);
+    }
+
+    option {
+      color: $cwru-blue;
+      background: $white;
+      padding: 8px;
+    }
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .filters-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .paper-filters {
+    width: 100%;
+
+    .filter-btn {
+      flex: 1 1 auto;
+      min-width: 80px;
+      font-size: 0.8rem;
+      padding: 6px 12px;
+    }
+  }
+
+  .year-filter-container {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .year-select {
+      width: 100%;
+    }
+  }
+}

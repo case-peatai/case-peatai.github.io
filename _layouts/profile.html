@@ -35,11 +35,12 @@ layout: default
         </p>
 
         <div class="contact-details">
+          {% if page.email %}
           <p>
             <strong>Email:</strong>
             <a href="mailto:{{ page.email }}">{{ page.email }}</a>
           </p>
-          {% if page.phone %}
+          {% endif %} {% if page.phone %}
           <p><strong>Phone:</strong> {{ page.phone }}</p>
           {% endif %} {% if page.office %}
           <p><strong>Office Location:</strong> {{ page.office }}</p>
@@ -69,34 +70,8 @@ layout: default
     </div>
 
     <div class="profile-main-body">
-      {% if page.short_bio or page.full_bio %}
-      <div class="bio-bubble">
-        {% if page.short_bio and page.full_bio %}
-        <div class="bio-toggle-header">
-          <button
-            class="bio-toggle-btn active"
-            onclick="toggleBioContent('short')"
-          >
-            Brief Bio
-          </button>
-          <button class="bio-toggle-btn" onclick="toggleBioContent('full')">
-            Full Bio
-          </button>
-        </div>
-        {% endif %}
-
-        <div id="bio-content-area">
-          <div id="short-bio-text" class="bio-text">
-            {{ page.short_bio | markdownify }}
-          </div>
-
-          {% if page.full_bio %}
-          <div id="full-bio-text" class="bio-text" style="display: none">
-            {{ page.full_bio | markdownify }}
-          </div>
-          {% endif %}
-        </div>
-      </div>
+      {% if page.intro %}
+      <div class="p-text-embedded-links">{{ page.intro | markdownify }}</div>
       {% endif %} {% if page.teaching_interests %}
       <h3 class="section-header">Teaching Information</h3>
       <p>{{ page.teaching_interests }}</p>
@@ -118,54 +93,141 @@ layout: default
     </div>
 
     <div class="profile-tabs">
+      <button class="tab-btn" onclick="openTab(event, 'bio-tab')">Bio</button>
       <button class="tab-btn active" onclick="openTab(event, 'research')">
         Research
+      </button>
+      <button class="tab-btn" onclick="openTab(event, 'publications')">
+        Publications
       </button>
       <button class="tab-btn" onclick="openTab(event, 'team')">Team</button>
     </div>
 
+    <!-- Bio Tab -->
+    <div id="bio-tab" class="tab-content">
+      <div class="p-text-embedded-links">{{ page.bio | markdownify }}</div>
+    </div>
+
+    <!-- Research Tab -->
     <div id="research" class="tab-content show">
-      {% if page.research_summary %}
-      <div
-        class="research-intro-text"
-        style="margin-bottom: 2rem; line-height: 1.6"
-      >
-        {{ page.research_summary | markdownify }}
-      </div>
-      {% endif %} {% if page.funding %}
+      {% if page.funding %}
       <div class="funding-highlight">
         <strong>{{ page.funding }}</strong>
       </div>
-      {% endif %} {% if page.papers %}
-      <div class="paper-filters" style="margin-bottom: 20px">
-        <span class="filter-label">Filter:</span>
-        <button class="filter-btn active" onclick="filterProfilePapers('all')">
-          All
-        </button>
-        {% if page.research_areas %} {% for area in page.research_areas %}
-        <button
-          class="filter-btn"
-          onclick="filterProfilePapers('{{ area | slugify }}')"
-        >
-          {{ area }}
-        </button>
-        {% endfor %} {% endif %}
-      </div>
+      {% endif %} 
       
-      <div class="selected-papers">
-        {% for paper_slug in page.papers %} {% assign paper = site.papers |
-        where: "name", paper_slug | first %} {% if paper %}
-        <div
-          class="paper-item"
-          data-areas="{% for area in paper.research_areas %}{{ area | slugify }}|{% endfor %}"
-        >
-          {% include research-paper-card.html paper=paper %}
+      {% if page.research_summary %}
+      <div class="research-intro-text" style="margin-bottom: 2rem; line-height: 1.6">
+        {{ page.research_summary | markdownify }}
+      </div>
+      {% endif %}
+
+      <!-- SPONSORED RESEARCH SECTION -->
+      {% if page.sponsored_research %}
+      <h3 class="section-header">Sponsored Research</h3>
+      <div class="sponsored-research-links">
+        {% for sponsor in page.sponsored_research %}
+        <a href="{{ sponsor.url }}" target="_blank" class="sponsor-button">
+          {{ sponsor.name }}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- RESEARCH AREAS SECTION -->
+      {% if page.research_areas %}
+      <h3 class="section-header">Research Areas</h3>
+      <div class="research-areas-grid">
+        {% for area in page.research_areas %}
+        <a href="{{ '/research/' | relative_url }}#{{ area | slugify }}" class="research-area-card">
+          <span class="area-name">{{ area }}</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- PROJECTS SECTION -->
+      {% if page.projects %}
+      <h3 class="section-header">Current Projects</h3>
+      <div class="projects-grid">
+        {% for project in page.projects %}
+        <div class="project-card">
+          <h4 class="project-name">{{ project.name }}</h4>
+          <p class="project-description">{{ project.description }}</p>
+          
+          {% if project.url %}
+          <a href="{{ project.url }}" target="_blank" class="project-link">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+          {% endif %}
+
+          {% if project.related_papers %}
+          <div class="project-papers">
+            <strong>Related Publications:</strong>
+            <ul class="related-papers-list">
+              {% for paper_slug in project.related_papers %}
+                {% assign paper = site.papers | where: "name", paper_slug | first %}
+                {% if paper %}
+                <li>
+                  <button class="related-paper-link" onclick="goToPublication('{{ paper_slug }}')">
+                    {{ paper.title }}
+                  </button>
+                  <span class="paper-year">({{ paper.year }})</span>
+                </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
         </div>
-        {% endif %} {% endfor %}
+        {% endfor %}
       </div>
       {% endif %}
     </div>
 
+    <!-- Publications Tab -->
+    <div id="publications" class="tab-content">
+      {% if page.publications_summary %}
+      <div class="publications-summary p-text-embedded-links">
+        {{ page.publications_summary | markdownify }}
+      </div>
+      {% endif %} 
+      
+      {% if page.papers %}
+      <div class="paper-filters" style="margin-bottom: 20px">
+        <span class="filter-label">Filter:</span>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <!-- Auto-generated filter buttons will be inserted here -->
+        <div id="profile-paper-filters-container" style="display: inline-flex; flex-wrap: wrap; gap: 10px;"></div>
+      </div>
+
+      <div class="selected-papers">
+        {% for paper_slug in page.papers %}
+          {% assign paper = site.papers | where: "name", paper_slug | first %}
+          {% if paper %}
+            <div class="paper-item" data-areas="{% for area in paper.research_areas %}{{ area | slugify }}|{% endfor %}" data-paper-slug="{{ paper_slug }}">
+              {% include research-paper-card.html paper=paper %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Team Tab -->
     <div id="team" class="tab-content">
       <!-- FACULTY VIEW: Auto-generate students -->
       {% if page.type == "faculty" %} {% assign all_members = site.people |
@@ -207,7 +269,10 @@ layout: default
   </div>
 </div>
 
+<script src="{{ '/assets/js/paper-filters.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/publication-navigation.js' | relative_url }}"></script>
 <script>
+  // Tab switching functionality
   function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tab-content");
@@ -221,54 +286,25 @@ layout: default
     document.getElementById(tabName).classList.add("show");
     evt.currentTarget.classList.add("active");
   }
-  function filterProfilePapers(filter) {
-    console.log("Profile filtering by: " + filter);
 
-    // Update button styling
-    const buttons = document.querySelectorAll(".paper-filters .filter-btn");
-    buttons.forEach((btn) => {
-      btn.classList.remove("active");
+  // Initialize page functionality
+  document.addEventListener("DOMContentLoaded", function () {
+    // Open external links in new tab
+    document.querySelectorAll(".p-text-embedded-links a").forEach((link) => {
+      link.setAttribute("target", "_blank");
+      link.setAttribute("rel", "noopener noreferrer");
     });
 
-    // Find and activate the clicked button
-    event.target.classList.add("active");
-
-    // Get all paper items in the research tab
-    const papers = document.querySelectorAll(".selected-papers .paper-item");
-
-    console.log("Found " + papers.length + " papers");
-
-    // Loop through all papers
-    papers.forEach((paper) => {
-      const areas = paper.getAttribute("data-areas");
-
-      // Show or hide based on filter
-      if (filter === "all") {
-        paper.classList.remove("hidden-paper");
-      } else if (areas.includes(filter)) {
-        paper.classList.remove("hidden-paper");
-      } else {
-        paper.classList.add("hidden-paper");
-      }
-    });
-  }
-
-  function toggleBioContent(version) {
-    const shortText = document.getElementById("short-bio-text");
-    const fullText = document.getElementById("full-bio-text");
-    const buttons = document.querySelectorAll(".bio-toggle-btn");
-
-    // Update Buttons
-    buttons.forEach((btn) => btn.classList.remove("active"));
-    event.currentTarget.classList.add("active");
-
-    // Switch Text
-    if (version === "short") {
-      shortText.style.display = "block";
-      fullText.style.display = "none";
-    } else {
-      shortText.style.display = "none";
-      fullText.style.display = "block";
+    // Initialize paper filters if papers exist on this page
+    const publicationsTab = document.getElementById('publications');
+    if (publicationsTab && publicationsTab.querySelector('.paper-item')) {
+      PaperFilters.init({
+        containerId: 'publications',
+        paperSelector: '.selected-papers .paper-item',
+        filterSelector: '.filter-btn',
+        autoPopulateFilters: true,
+        filterButtonsContainer: document.getElementById('profile-paper-filters-container')
+      });
     }
-  }
+  });
 </script>

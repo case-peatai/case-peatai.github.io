@@ -7,15 +7,28 @@ title: Publications & Code
   <div class="publications-section">
     <h1>Publications & Code</h1>
 
-    <!-- FILTER BUTTONS -->
-    <div class="paper-filters">
-      <span class="filter-label">Filter by research area:</span>
-      <button class="filter-btn active" onclick="filterPapers('all')">All Papers</button>
-      <button class="filter-btn" onclick="filterPapers('quantum-computing')">Quantum Computing</button>
-      <button class="filter-btn" onclick="filterPapers('artificial-intelligence')">Artificial Intelligence</button>
-      <button class="filter-btn" onclick="filterPapers('high-performance-computing')">High Performance Computing</button>
-      <button class="filter-btn" onclick="filterPapers('medical-imaging')">Medical Imaging</button>
-      <button class="filter-btn" onclick="filterPapers('data-science')">Data Science</button>
+    <!-- FILTER BUTTONS AND DROPDOWN -->
+    <div class="filters-container">
+      <div class="paper-filters">
+        <span class="filter-label">Filter by research area:</span>
+        <button class="filter-btn active" onclick="filterPapers('all')">All Papers</button>
+        <button class="filter-btn" onclick="filterPapers('quantum-computing')">Quantum Computing</button>
+        <button class="filter-btn" onclick="filterPapers('artificial-intelligence')">Artificial Intelligence</button>
+        <button class="filter-btn" onclick="filterPapers('high-performance-computing')">High Performance Computing</button>
+        <button class="filter-btn" onclick="filterPapers('medical-imaging')">Medical Imaging</button>
+        <button class="filter-btn" onclick="filterPapers('data-science')">Data Science</button>
+      </div>
+
+      <div class="year-filter-container">
+        <label for="year-select" class="filter-label">Filter by year:</label>
+        <select id="year-select" class="year-select" onchange="filterByYear(this.value)">
+          <option value="all">All Years</option>
+          {% assign all_years = site.papers | map: "year" | uniq | sort | reverse %}
+          {% for year in all_years %}
+            <option value="{{ year }}">{{ year }}</option>
+          {% endfor %}
+        </select>
+      </div>
     </div>
 
     <!-- PAPERS GROUPED BY YEAR -->
@@ -42,8 +55,13 @@ title: Publications & Code
 </div>
 
 <script>
+// Store current filters
+let currentAreaFilter = 'all';
+let currentYearFilter = 'all';
+
 function filterPapers(filter) {
-  console.log('Filtering by: ' + filter);
+  console.log('Filtering by area: ' + filter);
+  currentAreaFilter = filter;
   
   // Update button styling
   const buttons = document.querySelectorAll('.filter-btn');
@@ -54,42 +72,54 @@ function filterPapers(filter) {
   // Find and activate the clicked button
   event.target.classList.add('active');
   
+  // Apply both filters
+  applyFilters();
+}
+
+function filterByYear(year) {
+  console.log('Filtering by year: ' + year);
+  currentYearFilter = year;
+  
+  // Apply both filters
+  applyFilters();
+}
+
+function applyFilters() {
   // Get all paper items and year groups
   const papers = document.querySelectorAll('.paper-item');
   const yearGroups = document.querySelectorAll('.papers-year-group');
   
+  console.log('Applying filters - Area: ' + currentAreaFilter + ', Year: ' + currentYearFilter);
+  
   // Loop through all papers
   papers.forEach(paper => {
-    const areas = paper.getAttribute('data-areas');
+    const areas = paper.getAttribute('data-areas') || '';
+    const yearGroup = paper.closest('.papers-year-group');
+    const year = yearGroup ? yearGroup.getAttribute('data-year').trim() : '';
     
-    // Show or hide based on filter
-    if (filter === 'all') {
-      paper.classList.remove('hidden-paper');
-    } else if (areas.includes(filter)) {
-      paper.classList.remove('hidden-paper');
+    console.log('Paper year: "' + year + '", filter year: "' + currentYearFilter + '"');
+    
+    // Check if paper matches both filters
+    let areaMatch = (currentAreaFilter === 'all') || areas.includes(currentAreaFilter);
+    let yearMatch = (currentYearFilter === 'all') || (String(year) === String(currentYearFilter));
+    
+    console.log('Area match: ' + areaMatch + ', Year match: ' + yearMatch);
+    
+    if (areaMatch && yearMatch) {
+      paper.style.display = 'block';
     } else {
-      paper.classList.add('hidden-paper');
+      paper.style.display = 'none';
     }
   });
   
   // Hide year groups that have no visible papers
   yearGroups.forEach(group => {
-    const visiblePapers = group.querySelectorAll('.paper-item:not(.hidden-paper)').length;
-    if (visiblePapers === 0) {
-      group.classList.add('hidden-year-group');
+    const visibleInGroup = Array.from(group.querySelectorAll('.paper-item')).filter(p => p.style.display !== 'none').length;
+    if (visibleInGroup === 0) {
+      group.style.display = 'none';
     } else {
-      group.classList.remove('hidden-year-group');
+      group.style.display = 'block';
     }
   });
 }
 </script>
-
-<style>
-.hidden-paper {
-  display: none !important;
-}
-
-.hidden-year-group {
-  display: none !important;
-}
-</style>

@@ -1,5 +1,6 @@
 ---
 title: "Your Paper Title Here"
+name: "paper-example"
 year: 2025
 authors: "Author One, Author Two, Vipin Chaudhary"
 conference: "Conference Name 2025"
