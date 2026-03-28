@@ -16,38 +16,27 @@ This site is built with **Jekyll**.
 
 ---
 
-## Adding Lab Members
-The site uses a Jekyll Collection called `people`. Profiles are generated automatically from Markdown files.
+## Contributing Content
+To maintain the site without manual data entry for every member, we use a template-based system. **Do not edit the code directly unless authorized.**
 
-### 1. Create the File
-Add a new file to the `_people/` directory named `firstname-lastname.md`.
+### Adding/Updating Your Profile
+Lab member profiles are generated automatically from Markdown files in the `_people/` directory.
 
-### 2. Fill the Front Matter
-Copy and paste this template. All fields are **optional** and will only display if populated.
+1. **Get a Template**: Go to the `/templates` folder in this repository.
+2. **Choose Your Version**: 
+   * `profile-basic.md`: Use this for a quick setup with just essential contact info and your research focus.
+   * `profile-detailed.md`: Use this for a full profile including a detailed biography, papers, and professional awards.
+3. **Fill & Rename**: Fill in your data between the quotes. Save the file as `firstname-lastname.md`.
+4. **Submit**: Email your filled `.md` file and a high-quality profile photo to the site lead.
 
-```yaml
+### Adding Publications
+If you have a new paper to feature:
+1. Create a new Markdown file in the `_papers/` directory.
+2. Ensure the `name:` field in the paper's front matter matches the slug you use in your profile's `papers:` list.
+
 ---
-layout: profile
-name: "Full Name"
-type: "faculty" # Options: faculty, researcher
-role: "Your Title <br> Secondary Line"
-image: "/assets/images/your-photo.avif"
-email: "user@case.edu"
-phone: "216.xxx.xxxx"
-office: "Building Room"
-google_scholar: "URL_TO_SCHOLAR_PROFILE"
-funding: "Total funding amount or statement"
-research_areas:
-  - "Area 1"
-  - "Area 2"
-research_summary: "A short paragraph about your current work."
-teaching_interests: "List of classes or subjects."
-education:
-  - "Degree, University, Year"
-awards:
-  - "Award Name, Year"
-students:
-  - "slug-of-student-1"
-  - "slug-of-student-2"
----
-Your full bio or personal statement goes here. It will appear above the Research/Students tabs.
+
+## Guidelines
+* **Slugs**: Always use lowercase with hyphens for slugs (e.g., `vipin-chaudhary`).
+* **Images**: All profile photos should be placed in `assets/images/`.
+* **External Links**: Use the `personal_site:` field for your CWRU directory or personal portfolio.
