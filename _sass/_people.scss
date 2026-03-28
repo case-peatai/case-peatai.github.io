@@ -19,6 +19,7 @@
 }
 
 .people-grid.researchers {
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
@@ -85,4 +86,8 @@
 .person-card-circular h3,
 .person-card-circular p {
   text-align: center;
+}
+
+.person-item {
+  transition: all 0.3s ease;
 }

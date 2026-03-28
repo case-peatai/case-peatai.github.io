@@ -56,13 +56,21 @@ layout: default
           <a href="{{ page.linkedin }}" target="_blank" title="LinkedIn">
             {% include icons/linkedin.svg %}
           </a>
-          {% endif %} {% if page.google_scholar %}
+          {% endif %}{% if page.google_scholar %}
           <a
             href="{{ page.google_scholar }}"
             target="_blank"
             title="Google Scholar"
           >
             {% include icons/graduation-cap.svg %}
+          </a>
+          {% endif %} {% if page.personal_site %}
+          <a
+            href="{{ page.personal_site }}"
+            target="_blank"
+            title="Personal Site"
+          >
+            {% include icons/personal-site.svg %}
           </a>
           {% endif %}
         </div>
@@ -92,24 +100,77 @@ layout: default
       {% endif %}
     </div>
 
+    <!-- DETERMINE ACTIVE TAB: Priority is Research > Bio > Publications > Team -->
+    {% if page.research_summary or page.funding or page.sponsored_research or page.research_areas or page.projects %}
+      {% assign has_research = true %}
+    {% else %}
+      {% assign has_research = false %}
+    {% endif %}
+    
+    {% assign has_students = site.people | where_exp: "p", "p.mentors contains page.slug" | size %}
+    
+    {% if page.type == "faculty" and has_students > 0 or page.type != "faculty" and page.mentors or page.collaborators %}
+      {% assign has_team = true %}
+    {% else %}
+      {% assign has_team = false %}
+    {% endif %}
+    
+    {% assign active_tab_set = false %}
+    {% assign active_tab = "" %}
+    
+    {% if has_research and active_tab_set == false %}
+      {% assign active_tab = "research" %}
+      {% assign active_tab_set = true %}
+    {% endif %}
+    
+    {% if page.bio and active_tab_set == false %}
+      {% assign active_tab = "bio-tab" %}
+      {% assign active_tab_set = true %}
+    {% endif %}
+    
+    {% if page.papers and active_tab_set == false %}
+      {% assign active_tab = "publications" %}
+      {% assign active_tab_set = true %}
+    {% endif %}
+    
+    {% if has_team and active_tab_set == false %}
+      {% assign active_tab = "team" %}
+      {% assign active_tab_set = true %}
+    {% endif %}
+
+    <!-- TAB BUTTONS: Display order is Bio > Research > Publications > Team -->
     <div class="profile-tabs">
-      <button class="tab-btn" onclick="openTab(event, 'bio-tab')">Bio</button>
-      <button class="tab-btn active" onclick="openTab(event, 'research')">
-        Research
-      </button>
-      <button class="tab-btn" onclick="openTab(event, 'publications')">
-        Publications
-      </button>
-      <button class="tab-btn" onclick="openTab(event, 'team')">Team</button>
+      <!-- Bio Tab -->
+      {% if page.bio %}
+      <button class="tab-btn {% if active_tab == 'bio-tab' %}active{% endif %}" onclick="openTab(event, 'bio-tab')">Bio</button>
+      {% endif %}
+
+      <!-- Research Tab -->
+      {% if has_research %}
+      <button class="tab-btn {% if active_tab == 'research' %}active{% endif %}" onclick="openTab(event, 'research')">Research</button>
+      {% endif %}
+
+      <!-- Publications Tab -->
+      {% if page.papers %}
+      <button class="tab-btn {% if active_tab == 'publications' %}active{% endif %}" onclick="openTab(event, 'publications')">Publications</button>
+      {% endif %}
+
+      <!-- Team Tab -->
+      {% if has_team %}
+      <button class="tab-btn {% if active_tab == 'team' %}active{% endif %}" onclick="openTab(event, 'team')">Team</button>
+      {% endif %}
     </div>
 
     <!-- Bio Tab -->
-    <div id="bio-tab" class="tab-content">
+    {% if page.bio %}
+    <div id="bio-tab" class="tab-content {% if active_tab == 'bio-tab' %}show{% endif %}">
       <div class="p-text-embedded-links">{{ page.bio | markdownify }}</div>
     </div>
+    {% endif %}
 
     <!-- Research Tab -->
-    <div id="research" class="tab-content show">
+    {% if has_research %}
+    <div id="research" class="tab-content {% if active_tab == 'research' %}show{% endif %}">
       {% if page.funding %}
       <div class="funding-highlight">
         <strong>{{ page.funding }}</strong>
@@ -117,7 +178,7 @@ layout: default
       {% endif %} 
       
       {% if page.research_summary %}
-      <div class="research-intro-text" style="margin-bottom: 2rem; line-height: 1.6">
+      <div class="research-intro-text p-text-embedded-links" style="margin-bottom: 2rem; line-height: 1.6">
         {{ page.research_summary | markdownify }}
       </div>
       {% endif %}
@@ -197,20 +258,20 @@ layout: default
       </div>
       {% endif %}
     </div>
+    {% endif %}
 
     <!-- Publications Tab -->
-    <div id="publications" class="tab-content">
+    {% if page.papers %}
+    <div id="publications" class="tab-content {% if active_tab == 'publications' %}show{% endif %}">
       {% if page.publications_summary %}
       <div class="publications-summary p-text-embedded-links">
         {{ page.publications_summary | markdownify }}
       </div>
       {% endif %} 
       
-      {% if page.papers %}
       <div class="paper-filters" style="margin-bottom: 20px">
         <span class="filter-label">Filter:</span>
         <button class="filter-btn active" data-filter="all">All</button>
-        <!-- Auto-generated filter buttons will be inserted here -->
         <div id="profile-paper-filters-container" style="display: inline-flex; flex-wrap: wrap; gap: 10px;"></div>
       </div>
 
@@ -224,11 +285,12 @@ layout: default
           {% endif %}
         {% endfor %}
       </div>
-      {% endif %}
     </div>
+    {% endif %}
 
     <!-- Team Tab -->
-    <div id="team" class="tab-content">
+    {% if has_team %}
+    <div id="team" class="tab-content {% if active_tab == 'team' %}show{% endif %}">
       <!-- FACULTY VIEW: Auto-generate students -->
       {% if page.type == "faculty" %} {% assign all_members = site.people |
       where_exp: "p", "p.mentors contains page.slug" %} {% assign level_order =
@@ -250,8 +312,8 @@ layout: default
       {% if page.type != "faculty" and page.mentors %}
       <h4 class="subsection-header">Mentors</h4>
       <div class="people-grid researchers">
-        {% for mentor_id in page.mentors %} {% assign mentor = site.people |
-        where: "slug", mentor_id | first %} {% if mentor %} {% include
+        {% for mentor_slug in page.mentors %} {% assign mentor = site.people |
+        where: "slug", mentor_slug | first %} {% if mentor %} {% include
         person-card-circular.html person=mentor %} {% endif %} {% endfor %}
       </div>
       {% endif %}
@@ -259,13 +321,14 @@ layout: default
       {% if page.collaborators %}
       <h4 class="subsection-header">Collaborators</h4>
       <div class="people-grid researchers">
-        {% for collab_id in page.collaborators %} {% assign collaborator =
-        site.people | where: "slug", collab_id | first %} {% if collaborator %}
+        {% for collab_slug in page.collaborators %} {% assign collaborator =
+        site.people | where: "slug", collab_slug | first %} {% if collaborator %}
         {% include person-card-circular.html person=collaborator %} {% endif %}
         {% endfor %}
       </div>
       {% endif %}
     </div>
+    {% endif %}
   </div>
 </div>
 

@@ -12,6 +12,7 @@ office: "803D Olin Building"
 twitter: "https://x.com/vchaudhary"
 linkedin: "https://www.linkedin.com/in/vipin-chaudhary-379529/"
 google_scholar: "https://scholar.google.com/citations?user=WFdYhxMAAAAJ&hl=en"
+personal_site: "https://case.edu/engineering/about/faculty-and-staff-directory/vipin-chaudhary"
 funding: "Over $80M in external research funding."
 
 research_areas:
