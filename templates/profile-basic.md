@@ -7,6 +7,10 @@ type: "researcher"            # REQUIRED: Options are "faculty" or "researcher"
 level: "PHD"                  # REQUIRED: Options are "STAFF", "PHD", "MS", or "UG". This is used for filtering and display purposes.
 role: "Your Title"            # REQUIRED: e.g., "PhD Student" or "AI Researcher". This appears under your name on the profile page.
 
+# --- PROFILE PHOTO ---
+# Place your photo in /assets/images/ and link the path here. 
+# If left blank, a default avatar will be used.
+image: "/assets/images/your-name.avif" 
 
 mentors: ["vipin-chaudhary"]  # mentors: For students, list your advisor(s)' slug (e.g., ["vipin-chaudhary"])
 

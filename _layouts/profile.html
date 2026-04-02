@@ -107,12 +107,17 @@ layout: default
       {% assign has_research = false %}
     {% endif %}
     
-    {% assign has_students = site.people | where_exp: "p", "p.mentors contains page.slug" | size %}
-    
-    {% if page.type == "faculty" and has_students > 0 or page.type != "faculty" and page.mentors or page.collaborators %}
-      {% assign has_team = true %}
+    {% assign student_list = site.people | where_exp: "p", "p.mentors contains page.slug" %}
+
+    {% assign has_team = false %}
+    {% if page.type == "faculty" %}
+      {% if student_list.size > 0 %}
+        {% assign has_team = true %}
+      {% endif %}
     {% else %}
-      {% assign has_team = false %}
+      {% if page.mentors or page.collaborators %}
+        {% assign has_team = true %}
+      {% endif %}
     {% endif %}
     
     {% assign active_tab_set = false %}
