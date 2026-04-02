@@ -38,8 +38,18 @@ bio: |
 
 # --- RESEARCH & PUBLICATIONS ---
 # 'research_summary' appears at the top of the Research tab.
-# 'papers' must match the filenames (slugs) of papers in the _papers/ folder.
 research_summary: "Briefly describe your current research focus here."
+# 'projects' appear in the Research tab. 
+# 'related_papers' must match the 'name' field in your paper .md files.
+projects:
+  - name: "Project Title"
+    description: "A detailed description of the project goals and methods."
+    related_papers:
+      - "paper-slug-1"
+      - "paper-slug-2"
+
+# --- PUBLICATIONS ---
+# List all paper slugs that should appear in your Publications tab.
 papers:
   - "paper-slug-1"
   - "paper-slug-2"

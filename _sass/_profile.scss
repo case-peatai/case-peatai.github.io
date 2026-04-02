@@ -89,26 +89,7 @@
     }
   }
 
-  // Reusable class for paragraphs containing markdown-rendered links
-    .p-text-embedded-links {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: #333;
-      margin-bottom: 1.5rem;
-
-      a {
-        color: $cwru-blue;
-        text-decoration: none;
-        font-weight: 500;
-        border-bottom: 1px solid rgba(0, 48, 113, 0.2); // Subtle underline
-        transition: all 0.2s ease;
-
-        &:hover {
-          color: $cwru-true-blue;
-          border-bottom-color: $cwru-true-blue;
-        }
-      }
-    }
+  
 
   // 2. Main Body Content (Teaching, Education, Awards, Bio)
   .profile-main-body {

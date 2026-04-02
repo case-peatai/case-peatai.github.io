@@ -8,7 +8,18 @@
 
   <div class="paper-meta">
     {% if include.paper.authors %}
-    <p class="paper-authors">{{ include.paper.authors }}</p>
+    <p class="paper-authors p-text-embedded-links">
+      {% for author in include.paper.authors %} {% if author.slug %} {% assign
+      member = site.people | where: "slug", author.slug | first %} {% if member
+      %}
+      <strong
+        ><a href="{{ site.baseurl }}{{ member.url }}" class="author-link"
+          >{{ author.name }}</a
+        ></strong
+      >
+      {% else %} {{ author.name }} {% endif %} {% else %} {{ author.name }} {%
+      endif %} {% unless forloop.last %}, {% endunless %} {% endfor %}
+    </p>
     {% endif %} {% if include.paper.journal %}
     <p class="paper-journal"><strong>{{ include.paper.journal }}</strong></p>
     {% endif %} {% if include.paper.conference %}
@@ -18,11 +29,11 @@
     {% endif %}
   </div>
 
+  {% if include.paper.abstract %}
   <div class="paper-abstract">
-    {% if include.paper.abstract %}
     <p>{{ include.paper.abstract }}</p>
-    {% endif %}
   </div>
+  {% endif %}
 
   <div class="paper-research-areas">
     {% if include.paper.research_areas %} {% for area in
@@ -59,7 +70,16 @@
     >
       {% include icons/external-link.svg %} arXiv
     </a>
-    {% endif %} {% if include.paper.url %}
+    {% endif %} {% if include.paper.github %}
+    <a
+      href="https://github.com/{{ include.paper.github }}"
+      class="paper-link github-link"
+      target="_blank"
+      title="View Code"
+    >
+      {% include icons/github.svg %} Code
+    </a>
+    {% endif %}{% if include.paper.paper_page %}
     <a
       href="{{ include.paper.url }}"
       class="paper-link external-link"

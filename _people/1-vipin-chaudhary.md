@@ -29,28 +29,34 @@ sponsored_research:
  
 # Current Projects
 projects:
-  - name: "Quantum Circuit Optimization"
-    description: "Developing efficient circuit cutting techniques for modular quantum processing units to improve throughput and reduce latency on heterogeneous quantum hardware."
-    url: "https://example.com/quantum-project"
+  - name: "Intelligent Cyberinfrastructure (ICICLE)"
+    description: "Co-leading the NSF-funded ICICLE institute to advance 'AI-as-a-Service' through a plug-and-play cyberinfrastructure that spans the edge-cloud-HPC continuum for democratization of AI."
     related_papers:
-      - paper1
-  - name: "Trustworthy AI Framework"
-    description: "Building systems that can identify and appropriately handle atypical or out-of-distribution samples, improving reliability and robustness in real-world AI deployments."
-    url: "https://example.com/trustworthy-ai"
+      - "democratizing-ai"
+      - "cradle-materials"
+  - name: "Trustworthy AI & Speech Recognition"
+    description: "Evaluating the reliability and human-likeness of AI-generated voice clones and ASR scoring methods to ensure robustness in clinical and hearing research applications."
     related_papers:
-      - paper2
-  - name: "Medical Imaging with AI"
-    description: "Applying zero-shot learning and video segmentation techniques to 3D medical imaging, enabling efficient diagnostic tools that require minimal computational overhead."
+      - "masked-speech"
+  - name: "Medical Imaging with Generative AI"
+    description: "Developing unsupervised methods for fully automated segmentation of knee lesions using conditional diffusion models and anomaly detection to eliminate annotator bias in osteoarthritis prognosis."
     related_papers:
-      - paper-example
- 
-research_summary: "Optional something about research" 
+      - "knee-segmentation"
+  - name: "Materials Data Science"
+    description: "Applying computer vision and deep learning to automate phase identification in synchrotron X-ray diffraction patterns for advanced materials characterization."
+    related_papers:
+      - "synchrotron-xray"
+
+research_summary: "Dr. Chaudhary's research focuses on the intersection of High-Performance Computing (HPC) and Artificial Intelligence (AI), specifically developing scalable cyberinfrastructure for 'AI4Science' and medical imaging." 
 publications_summary: "Selected Publications since 2020 [(more on Google Scholar)](https://scholar.google.com/citations?user=WFdYhxMAAAAJ&hl=en)"
 
+# These slugs must match the 'name' field in your _papers/*.md files exactly
 papers:
-  - paper1
-  - paper2
-  - paper-example
+  - "masked-speech"
+  - "cradle-materials"
+  - "knee-segmentation"
+  - "democratizing-ai"
+  - "synchrotron-xray"
 
 intro: |
   Dr. Chaudhary is the Kevin J. Kranzusch Chair and Professor of [Computer and Data Sciences](https://engineering.case.edu/computer-and-data-sciences) 
