@@ -23,9 +23,14 @@ research_areas:
   - "Trustworthy AI"
  
 # Sponsored Research - External funding sources
-sponsored_research:
+multi_institutional_projects:
   - name: "ICICLE: Intelligent CI with Computational Learning in the Environment"
     url: "https://icicle.osu.edu/"
+  - name: "NSF OH-SCIPE"
+    url: "https://oh-scipe.github.io/"
+  - name: "The Center for Materials Data Science for Stockpile Stewardship"
+    url: "https://mds3-coe.com/"
+
  
 # Current Projects
 projects:
@@ -47,7 +52,7 @@ projects:
     related_papers:
       - "synchrotron-xray"
 
-research_summary: "Dr. Chaudhary's research focuses on the intersection of High-Performance Computing (HPC) and Artificial Intelligence (AI), specifically developing scalable cyberinfrastructure for 'AI4Science' and medical imaging." 
+research_summary: "Dr. Chaudhary’s research focuses on various aspects of AI (trust, embodied, performant) and its application, High Performance Computing and Quantum Computing." 
 publications_summary: "Selected Publications since 2020 [(more on Google Scholar)](https://scholar.google.com/citations?user=WFdYhxMAAAAJ&hl=en)"
 
 # These slugs must match the 'name' field in your _papers/*.md files exactly

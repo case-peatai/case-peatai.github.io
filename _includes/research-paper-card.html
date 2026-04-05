@@ -79,15 +79,40 @@
     >
       {% include icons/github.svg %} Code
     </a>
-    {% endif %}{% if include.paper.paper_page %}
+    {% endif %} {% if include.paper.paper_page %}
     <a
-      href="{{ include.paper.url }}"
+      href="{{ include.paper.paper_page }}"
       class="paper-link external-link"
       target="_blank"
       title="View Online"
     >
       {% include icons/external-link.svg %} View
     </a>
+    {% endif %} {% if include.paper.bibtex %}
+    <button
+      class="paper-link bibtex-link"
+      onclick="toggleBibtex('{{ include.paper.name }}')"
+    >
+      {% include icons/quote.svg %} BibTeX
+    </button>
     {% endif %}
   </div>
+  {% if include.paper.bibtex %}
+  <div
+    id="bib-{{ include.paper.name }}"
+    class="bibtex-container"
+    style="display: none"
+  >
+    <div class="bibtex-header">
+      <span>BibTeX Citation</span>
+      <button
+        class="copy-button"
+        onclick="copyBibtex('{{ include.paper.name }}')"
+      >
+        Copy
+      </button>
+    </div>
+    <pre><code>{{ include.paper.bibtex }}</code></pre>
+  </div>
+  {% endif %}
 </div>

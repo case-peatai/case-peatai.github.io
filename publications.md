@@ -39,7 +39,7 @@ title: Publications & Code
       <h2 class="year-heading">{{ year_group.name }}</h2>
       
       <div class="papers-list">
-        {% assign sorted_papers = year_group.items | sort: "title" %}
+        {% assign sorted_papers = site.papers | where_exp: "item", "item.year != nil" | sort: "year" | reverse %}
         {% for paper in sorted_papers %}
         
         <div class="paper-item" data-areas="{% for area in paper.research_areas %}{{ area | slugify }}|{% endfor %}">

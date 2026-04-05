@@ -223,8 +223,8 @@
 }
 // Research Tab Sections Styling
 
-// Sponsored Research Links
-.sponsored-research-links {
+// Multi-multi institutional projects Links
+.multi_institutional_projects-links {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -416,7 +416,7 @@
 
 // Mobile Responsiveness
 @media (max-width: 768px) {
-  .sponsored-research-links {
+  .multi_institutional_projects-links {
     gap: 8px;
 
     .sponsor-button {

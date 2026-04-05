@@ -47,3 +47,44 @@ function goToPublication(paperSlug) {
     }, 100);
   }
 }
+
+/**
+ * Toggles the visibility of the BibTeX popup and handles the copy function
+ * @param {string} paperName - The unique slug of the paper
+ */
+function toggleBibtex(paperName) {
+    const bibContainer = document.getElementById(`bib-${paperName}`);
+    
+    // Toggle the display
+    if (bibContainer.style.display === "none" || bibContainer.style.display === "") {
+        // Close any other open BibTeX containers first (optional but recommended)
+        document.querySelectorAll('.bibtex-container').forEach(el => el.style.display = 'none');
+        
+        bibContainer.style.display = "block";
+    } else {
+        bibContainer.style.display = "none";
+    }
+}
+
+/**
+ * Copies the BibTeX text to the clipboard
+ * @param {string} paperName - The unique slug of the paper
+ */
+function copyBibtex(paperName) {
+    const bibCode = document.querySelector(`#bib-${paperName} code`).innerText;
+    const button = document.querySelector(`#bib-${paperName} .copy-button`);
+    
+    navigator.clipboard.writeText(bibCode).then(() => {
+        // Visual feedback that it worked
+        const originalText = button.innerHTML;
+        button.innerHTML = "Copied!";
+        button.classList.add('copy-success');
+        
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove('copy-success');
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}

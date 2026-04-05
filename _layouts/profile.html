@@ -101,7 +101,7 @@ layout: default
     </div>
 
     <!-- DETERMINE ACTIVE TAB: Priority is Research > Bio > Publications > Team -->
-    {% if page.research_summary or page.funding or page.sponsored_research or page.research_areas or page.projects %}
+    {% if page.research_summary or page.funding or page.multi_institutional_projects or page.research_areas or page.projects %}
       {% assign has_research = true %}
     {% else %}
       {% assign has_research = false %}
@@ -188,11 +188,11 @@ layout: default
       </div>
       {% endif %}
 
-      <!-- SPONSORED RESEARCH SECTION -->
-      {% if page.sponsored_research %}
-      <h3 class="section-header">Sponsored Research</h3>
-      <div class="sponsored-research-links">
-        {% for sponsor in page.sponsored_research %}
+      <!-- MULTI-INSTITUTIONAL PROJECTS SECTION -->
+      {% if page.multi_institutional_projects %}
+      <h3 class="section-header">Multi-Institutional Projects</h3>
+      <div class="multi_institutional_projects-links">
+        {% for sponsor in page.multi_institutional_projects %}
         <a href="{{ sponsor.url }}" target="_blank" class="sponsor-button">
           {{ sponsor.name }}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
