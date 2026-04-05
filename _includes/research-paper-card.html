@@ -43,52 +43,63 @@
   </div>
 
   <div class="paper-links">
-    {% if include.paper.pdf_url %}
+    {% assign pdf = include.paper.pdf_url | strip %} {% if pdf != "" and pdf !=
+    nil %}
     <a
-      href="{{ include.paper.pdf_url }}"
+      href="{{ pdf }}"
       class="paper-link pdf-link"
       target="_blank"
       title="Download PDF"
     >
       {% include icons/file-text.svg %} PDF
     </a>
-    {% endif %} {% if include.paper.doi %}
+    {% endif %} {% assign doi = include.paper.doi | strip %} {% if doi != "" and
+    doi != nil %} {% assign doi_id = doi | remove: "https://doi.org/" | remove:
+    "http://doi.org/" | remove: "doi.org/" %}
     <a
-      href="https://doi.org/{{ include.paper.doi }}"
+      href="https://doi.org/{{ doi_id }}"
       class="paper-link doi-link"
       target="_blank"
       title="View on DOI"
     >
       {% include icons/external-link.svg %} DOI
     </a>
-    {% endif %} {% if include.paper.arxiv %}
+    {% endif %} {% assign arxiv = include.paper.arxiv | strip %} {% if arxiv !=
+    "" and arxiv != nil %} {% assign arxiv_id = arxiv | remove:
+    "https://arxiv.org/abs/" | remove: "http://arxiv.org/abs/" | remove:
+    "arxiv.org/abs/" %}
     <a
-      href="https://arxiv.org/abs/{{ include.paper.arxiv }}"
+      href="https://arxiv.org/abs/{{ arxiv_id }}"
       class="paper-link arxiv-link"
       target="_blank"
       title="View on arXiv"
     >
       {% include icons/external-link.svg %} arXiv
     </a>
-    {% endif %} {% if include.paper.github %}
+    {% endif %} {% assign github = include.paper.github | strip %} {% if github
+    != "" and github != nil %} {% assign github_path = github | remove:
+    "https://github.com/" | remove: "http://github.com/" | remove: "github.com/"
+    %}
     <a
-      href="https://github.com/{{ include.paper.github }}"
+      href="https://github.com/{{ github_path }}"
       class="paper-link github-link"
       target="_blank"
       title="View Code"
     >
       {% include icons/github.svg %} Code
     </a>
-    {% endif %} {% if include.paper.paper_page %}
+    {% endif %} {% assign page_link = include.paper.paper_page | strip %} {% if
+    page_link != "" and page_link != nil %}
     <a
-      href="{{ include.paper.paper_page }}"
+      href="{{ page_link }}"
       class="paper-link external-link"
       target="_blank"
       title="View Online"
     >
       {% include icons/external-link.svg %} View
     </a>
-    {% endif %} {% if include.paper.bibtex %}
+    {% endif %} {% assign bib = include.paper.bibtex | strip %} {% if bib != ""
+    and bib != nil %}
     <button
       class="paper-link bibtex-link"
       onclick="toggleBibtex('{{ include.paper.name }}')"
@@ -97,7 +108,9 @@
     </button>
     {% endif %}
   </div>
-  {% if include.paper.bibtex %}
+
+  {% assign bib = include.paper.bibtex | strip %} {% if bib != "" and bib != nil
+  %}
   <div
     id="bib-{{ include.paper.name }}"
     class="bibtex-container"
@@ -112,7 +125,7 @@
         Copy
       </button>
     </div>
-    <pre><code>{{ include.paper.bibtex }}</code></pre>
+    <pre><code>{{ bib }}</code></pre>
   </div>
   {% endif %}
 </div>
