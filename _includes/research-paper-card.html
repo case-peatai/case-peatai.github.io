@@ -76,6 +76,18 @@
     >
       {% include icons/external-link.svg %} arXiv
     </a>
+    {% endif %} {% assign openreview = include.paper.openreview | strip %} {% if
+    openreview != "" and openreview != nil %} {% assign openreview_id =
+    openreview | remove: "https://openreview.net/forum?id=" | remove:
+    "http://openreview.net/forum?id=" | remove: "openreview.net/forum?id=" %}
+    <a
+      href="https://openreview.net/forum?id={{ openreview_id }}"
+      class="paper-link openreview-link"
+      target="_blank"
+      title="View on OpenReview"
+    >
+      {% include icons/external-link.svg %} OpenReview
+    </a>
     {% endif %} {% assign github = include.paper.github | strip %} {% if github
     != "" and github != nil %} {% assign github_path = github | remove:
     "https://github.com/" | remove: "http://github.com/" | remove: "github.com/"

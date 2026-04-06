@@ -2,6 +2,17 @@
 layout: default
 ---
 
+{% assign display_papers = "" | split: "," %} {% if page.papers %} {% comment %}
+MANUAL MODE {% endcomment %} {% for p_slug in page.papers %} {% assign
+found_paper = site.papers | where: "name", p_slug | first %} {% if found_paper
+%} {% assign display_papers = display_papers | push: found_paper %} {% endif %}
+{% endfor %} {% else %} {% comment %} DYNAMIC MODE {% endcomment %} {% for paper
+in site.papers %} {% assign is_author = false %} {% for author in paper.authors
+%} {% if author.slug == page.slug and page.slug != nil %} {% assign is_author =
+true %} {% endif %} {% endfor %} {% if is_author %} {% assign display_papers =
+display_papers | push: paper %} {% endif %} {% endfor %} {% assign
+display_papers = display_papers | sort: "year" | reverse %} {% endif %}
+
 <div class="main-content">
   <div class="profile-container">
     <div class="profile-header">
@@ -115,10 +126,11 @@ layout: default
     and active_tab_set == false %} {% assign active_tab = "research" %} {%
     assign active_tab_set = true %} {% endif %} {% if page.bio and
     active_tab_set == false %} {% assign active_tab = "bio-tab" %} {% assign
-    active_tab_set = true %} {% endif %} {% if page.papers and active_tab_set ==
-    false %} {% assign active_tab = "publications" %} {% assign active_tab_set =
-    true %} {% endif %} {% if has_team and active_tab_set == false %} {% assign
-    active_tab = "team" %} {% assign active_tab_set = true %} {% endif %}
+    active_tab_set = true %} {% endif %} {% if display_papers.size > 0 and
+    active_tab_set == false %} {% assign active_tab = "publications" %} {%
+    assign active_tab_set = true %} {% endif %} {% if has_team and
+    active_tab_set == false %} {% assign active_tab = "team" %} {% assign
+    active_tab_set = true %} {% endif %}
 
     <!-- TAB BUTTONS: Display order is Bio > Research > Publications > Team -->
     <div class="profile-tabs">
@@ -143,7 +155,7 @@ layout: default
       {% endif %}
 
       <!-- Publications Tab -->
-      {% if page.papers %}
+      {% if display_papers.size > 0 %}
       <button
         class="tab-btn {% if active_tab == 'publications' %}active{% endif %}"
         onclick="openTab(event, 'publications')"
@@ -298,7 +310,7 @@ layout: default
     {% endif %}
 
     <!-- Publications Tab -->
-    {% if page.papers %}
+    {% if display_papers.size > 0 %}
     <div
       id="publications"
       class="tab-content {% if active_tab == 'publications' %}show{% endif %}"
@@ -319,16 +331,15 @@ layout: default
       </div>
 
       <div class="selected-papers">
-        {% for paper_slug in page.papers %} {% assign paper = site.papers |
-        where: "name", paper_slug | first %} {% if paper %}
+        {% for paper in display_papers %}
         <div
           class="paper-item"
           data-areas="{% for area in paper.research_areas %}{{ area | slugify }}|{% endfor %}"
-          data-paper-slug="{{ paper_slug }}"
+          data-paper-slug="{{ paper.name }}"
         >
           {% include research-paper-card.html paper=paper %}
         </div>
-        {% endif %} {% endfor %}
+        {% endfor %}
       </div>
     </div>
     {% endif %}
@@ -400,10 +411,21 @@ layout: default
 
   // Initialize page functionality
   document.addEventListener("DOMContentLoaded", function () {
-    // Open external links in new tab
+    // Open ONLY external links in new tab
     document.querySelectorAll(".p-text-embedded-links a").forEach((link) => {
-      link.setAttribute("target", "_blank");
-      link.setAttribute("rel", "noopener noreferrer");
+      const href = link.getAttribute("href");
+
+      // Check if the link is external:
+      // 1. Starts with http or https
+      // 2. Does NOT contain the current site's hostname
+      const isExternal =
+        href.startsWith("http") && !href.includes(window.location.hostname);
+
+      if (isExternal) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      }
+      // If it's internal, we do nothing, letting it follow standard _self navigation
     });
 
     // Initialize paper filters if papers exist on this page

@@ -158,12 +158,18 @@
         }
       }
       &.bibtex-link {
-        background: #6c757d; 
+        background: #6c757d;
         border: none;
         cursor: pointer;
 
         &:hover {
           background: #5a6268;
+        }
+      }
+      &.openreview-link {
+        background: #8c1b13;
+        &:hover {
+          background: #6d150f;
         }
       }
     }

@@ -55,14 +55,6 @@ projects:
 research_summary: "Dr. Chaudhary’s research focuses on various aspects of AI (trust, embodied, performant) and its application, High Performance Computing and Quantum Computing." 
 publications_summary: "Selected Publications since 2020 [(more on Google Scholar)](https://scholar.google.com/citations?user=WFdYhxMAAAAJ&hl=en)"
 
-# These slugs must match the 'name' field in your _papers/*.md files exactly
-papers:
-  - "masked-speech"
-  - "cradle-materials"
-  - "knee-segmentation"
-  - "democratizing-ai"
-  - "synchrotron-xray"
-
 intro: |
   Dr. Chaudhary is the Kevin J. Kranzusch Chair and Professor of [Computer and Data Sciences](https://engineering.case.edu/computer-and-data-sciences) 
   with secondary appointments in the [Department of Electrical, Computer, and Systems Engineering](https://case.edu/engineering/electrical-computer-and-systems-engineering/), [Department of Biomedical Engineering](https://case.edu/bme/), and the [Center for Artificial Intelligence in Drug Discovery](https://case.edu/medicine/aicenter/), School of Medicine.

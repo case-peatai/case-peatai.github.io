@@ -21,6 +21,7 @@ conference: ""                # Use this OR 'journal'
 doi: ""                       # Just the ID (e.g., 10.1177/xxxx)
 github: ""                    # Just the repo path (e.g., case-peatai/repo-name)
 arxiv: ""                     # Just the ID (e.g., 2301.xxxx)
+openreview: ""                # Just the ID from the URL (e.g. vfbeleLBWv)
 paper_page: ""                # Full URL to a custom project page (e.g. GitHub Pages)
 
 # --- CATEGORIZATION ---
@@ -33,4 +34,17 @@ research_areas:
 abstract: |
   A concise 3-4 sentence summary of the paper's methodology and impact. 
   This appears on the publication card and helps with SEO.
+
+# Standard bibtex. This is used for display and can be copied directly from the publisher's website
+bibtex: |
+  @article{key2024paper,
+    title={Full Title of the Paper},
+    author={Author, A. and Collaborator, B.},
+    journal={Journal Name},
+    volume={X},
+    pages={Y--Z},
+    year={2024},
+    publisher={Publisher Name},
+    doi={10.1177/xxxx}
+  }
 ---
