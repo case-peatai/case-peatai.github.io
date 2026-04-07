@@ -49,7 +49,10 @@ projects:
       - "paper-slug-2"
 
 # --- PUBLICATIONS ---
-# List all paper slugs that should appear in your Publications tab.
+# If you want to manually specify which papers appear on your profile, list their slugs here. 
+# Otherwise, all papers that list your slug in the 'authors' field will automatically be pulled in.
+# Note: I recommend leaving this blank and letting the system pull in all your papers, unless you have a specific reason to curate the list. 
+# This way, you won't have to update your profile every time you publish a new paper.
 papers:
   - "paper-slug-1"
   - "paper-slug-2"

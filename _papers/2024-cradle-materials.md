@@ -4,7 +4,6 @@ title: "Materials Data Science Using CRADLE: A Distributed, Data-Centric Approac
 year: 2024
 authors:
   - name: "Thomas G. Ciardi"
-    slug: "thomas-zhang"
   - name: "Arafath Nihar"
     slug: "arafath-nihar"
   - name: "Rounak Chawla"

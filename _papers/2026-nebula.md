@@ -35,4 +35,14 @@ research_areas:
 # --- CONTENT ---
 abstract: |
   This paper introduces NEBULA, a unified ecosystem for evaluating Vision-Language-Action (VLA) agents beyond coarse end-task success metrics. It proposes a novel dual-axis evaluation framework that combines fine-grained capability tests for skill-specific diagnosis with systematic stress tests to measure robustness under real-world perturbations. In addition, NEBULA standardizes fragmented embodied AI datasets through a unified data format and API, enabling reproducible cross-dataset training and benchmarking. Experimental results reveal that state-of-the-art VLA models exhibit significant hidden weaknesses in critical capabilities such as spatial reasoning and dynamic adaptation, highlighting the need for more interpretable and reliability-aware evaluation.  [oai_citation:0‡ICLR_2026_Nebula_Final.pdf](sediment://file_000000002e8c722f8ce2ecef4cc5af26)
+
+bibtex: |
+  @misc{peng2025nebulaevaluatevisionlanguageactionagents,
+        title={NEBULA: Do We Evaluate Vision-Language-Action Agents Correctly?}, 
+        author={Jierui Peng and Yanyan Zhang and Yicheng Duan and Tuo Liang and Vipin Chaudhary and Yu Yin},
+        year={2025},
+        eprint={2510.16263},
+        archivePrefix={arXiv},
+        primaryClass={cs.RO},
+        url={https://arxiv.org/abs/2510.16263}, }
 ---

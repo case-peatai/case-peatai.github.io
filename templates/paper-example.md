@@ -12,8 +12,10 @@ title: "Full Title of the Paper"
 year: 2024                    # REQUIRED: For chronological sorting
 authors:                      # REQUIRED: List all authors in order
   - name: "Author Name"
-    slug: "member-slug"       # Only add slug if they are a PEAT Lab member
+    slug: "member-slug"       # Only add slug if they are a PEAT AI Lab member
   - name: "External Collaborator" # No slug for people outside the lab
+
+# Journal OR conference name, will show on the publication card below the authors list - only one should be filled out
 journal: "Journal Name"       # Use this OR 'conference'
 conference: ""                # Use this OR 'journal'
 

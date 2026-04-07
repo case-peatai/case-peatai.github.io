@@ -33,19 +33,19 @@ title: Publications & Code
 
     <!-- PAPERS GROUPED BY YEAR -->
     {% assign papers_by_year = site.papers | sort: "year" | reverse | group_by: "year" %}
-    
+
     {% for year_group in papers_by_year %}
     <div class="papers-year-group" data-year="{{ year_group.name }}">
       <h2 class="year-heading">{{ year_group.name }}</h2>
-      
+
       <div class="papers-list">
-        {% assign sorted_papers = site.papers | where_exp: "item", "item.year != nil" | sort: "year" | reverse %}
-        {% for paper in sorted_papers %}
-        
+      {% assign sorted_papers = year_group.items | sort: "title" %}
+      {% for paper in sorted_papers %}
+
         <div class="paper-item" data-areas="{% for area in paper.research_areas %}{{ area | slugify }}|{% endfor %}">
           {% include research-paper-card.html paper=paper %}
         </div>
-        
+
         {% endfor %}
       </div>
     </div>
