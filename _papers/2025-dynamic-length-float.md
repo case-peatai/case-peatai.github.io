@@ -30,7 +30,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Presents a lossless LLM compression technique using dynamic-length float representation, achieving 70% size reduction while maintaining full accuracy for GPU inference.
+  Large-scale AI models have grown rapidly in size, creating significant challenges for deployment on resource-constrained hardware. This paper introduces Dynamic-Length Float (DFloat11), a lossless compression framework that reduces LLM size by 30% while preserving outputs that are bit-for-bit identical to the original model, exploiting the low entropy in BFloat16 weight representations through entropy coding and dynamic-length encodings. A custom GPU kernel enables fast online decompression, and experiments on Llama 3.3, Qwen 3, and Mistral 3 validate 30% size reduction with 2.3–46.2× higher throughput than CPU offloading—notably enabling lossless inference of Llama 3.1 405B on a single 8×80GB GPU node.
 
 bibtex: |
   @misc{zhang202670size100accuracy,

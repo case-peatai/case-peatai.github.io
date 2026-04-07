@@ -28,7 +28,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Investigates the relationship between long-context processing and reasoning in LLMs, revealing how extended context windows enable deeper multi-step reasoning.
+  Recent language models exhibit strong reasoning capabilities, yet the influence of long-context capacity on reasoning remains underexplored. This paper hypothesizes that current reasoning limitations stem partly from insufficient long-context capacity, motivated by observations that higher context window lengths correlate with stronger reasoning performance and that failed reasoning cases resemble failed long-context cases. Controlled experiments comparing architecturally identical models with varying long-context capacities confirm that enhancing long-context ability before supervised fine-tuning leads to improved reasoning, advocating for long-context capacity as a first-class design objective.
 
 bibtex: |
   @misc{yang2025longercontextdeeperthinking,

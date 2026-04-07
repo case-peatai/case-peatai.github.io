@@ -28,7 +28,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Methods for approximate quantum circuit reconstruction from partial or noisy measurement data to support debugging and verification of quantum programs.
+  Current and imminent quantum hardware lacks reliability due to noise and limited qubit counts, and quantum circuit cutting—which divides large circuits into smaller subcircuits—faces exponential classical post-processing overhead. This paper introduces approximate circuit reconstruction using a sampling-based method (MCMC) to probabilistically select high-probability bit strings during reconstruction, avoiding excessive calculations for the full probability distribution. Results show that this sampling-based post-processing holds great potential for fast and reliable circuit reconstruction in the NISQ era and beyond.
 
 bibtex: |
   @misc{chen2022approximatequantumcircuitcutting,

@@ -27,14 +27,14 @@ abstract: |
 
 bibtex: |
   @INPROCEEDINGS{9671391,
-    author={Seth, Taruna and Chaudhary, Vipin},
-    booktitle={2021 IEEE International Conference on Big Data (Big Data)}, 
-    title={A Predictive Framework for Multi-Horizon Financial Crises Forecasting using Macro-Economic Data}, 
-    year={2021},
-    volume={},
-    number={},
-    pages={1109-1118},
-    keywords={Economics;Uncertainty;Biological system modeling;Vents;Predictive models;Big Data;Data models;Multi-Horizon predictive modeling;Deep networks;Time-series;Macroeconomic events forecasting},
-    doi={10.1109/BigData52589.2021.9671391}}
+  author={Seth, Taruna and Chaudhary, Vipin},
+  booktitle={2021 IEEE International Conference on Big Data (Big Data)}, 
+  title={A Predictive Framework for Multi-Horizon Financial Crises Forecasting using Macro-Economic Data}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={1109-1118},
+  keywords={Economics;Uncertainty;Biological system modeling;Vents;Predictive models;Big Data;Data models;Multi-Horizon predictive modeling;Deep networks;Time-series;Macroeconomic events forecasting},
+  doi={10.1109/BigData52589.2021.9671391}}
 
 ---

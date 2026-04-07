@@ -32,7 +32,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Presents a fine-grained GPU performance modeling framework for distributed LLM training, enabling accurate prediction and optimization across heterogeneous GPU clusters.
+  Training large language models is one of the most compute-intensive tasks in HPC, and predicting end-to-end training time for multi-billion parameter models across hundreds of GPUs is challenging due to complex interactions between transformer components, parallelism strategies, and multi-tier communication. This paper addresses this by decomposing LLMs into core computational primitives and modeling them with operator-level decomposition, lightweight hardware-aware prediction models for key operations, and an end-to-end prediction system integrating these across complex parallelization strategies. The resulting framework enables accurate distributed LLM training performance prediction without costly full-scale sampling.
 
 bibtex: |
   @misc{zhang2025efficientfinegrainedgpuperformance,

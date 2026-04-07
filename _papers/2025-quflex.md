@@ -30,7 +30,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Presents QuFlex, an adaptive circuit-cutting approach for parallel quantum job scheduling across multiple QPUs.
+  Parallel quantum job scheduling across multiple QPUs is critical for maximizing throughput in heterogeneous quantum computing environments. QuFlex introduces an adaptive circuit-cutting approach that dynamically partitions quantum circuits based on available QPU resources, enabling efficient parallel scheduling across heterogeneous quantum hardware. The framework demonstrates improved QPU utilization and reduced job completion times compared to static partitioning approaches.
 
 bibtex: |
   @INPROCEEDINGS{11333863,

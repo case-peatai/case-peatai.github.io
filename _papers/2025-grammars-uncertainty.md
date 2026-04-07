@@ -35,7 +35,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Investigates formal uncertainty quantification in LLMs for automated reasoning, providing frameworks for determining when model outputs can be trusted.
+  Large language models show remarkable promise for automated reasoning by generating formal specifications, but a fundamental tension exists between their probabilistic nature and the deterministic guarantees required by formal verification. This paper comprehensively investigates failure modes and uncertainty quantification in LLM-generated formal artifacts, revealing that SMT-based autoformalization has highly domain-specific accuracy impacts ranging from +34.8% on logical tasks to −44.5% on factual ones. A probabilistic context-free grammar (PCFG) framework is introduced to model LLM outputs and yield a refined uncertainty taxonomy, finding that uncertainty signals are task-dependent—for example, grammar entropy for logic achieves AUROC > 0.93.
 
 bibtex: |
   @misc{ganguly2025grammarsformaluncertaintytrust,

@@ -33,7 +33,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Introduces LABELING COPILOT, a deep research agent automating data curation workflows in computer vision, reducing manual annotation effort.
+  Curating high-quality, domain-specific datasets is a major bottleneck for deploying robust vision systems. This paper introduces Labeling Copilot, the first data curation deep research agent for computer vision, powered by a large multimodal language model that uses multi-step reasoning to execute specialized tools across three core capabilities: Calibrated Discovery for sourcing in-distribution data from large repositories, Controllable Synthesis for generating rare-scenario data with robust filtering, and Consensus Annotation for producing accurate labels via a novel multi-model consensus mechanism. On the dense COCO dataset, the Consensus Annotation module achieves an annotation mAP of 37.1%, and on Open Images it discovers 903 new bounding box categories.
 
 bibtex: |
   @misc{ganguly2025labelingcopilotdeepresearch,

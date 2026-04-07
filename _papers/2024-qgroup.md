@@ -24,7 +24,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  QGroup uses dynamic programming to efficiently group and schedule quantum circuits across multiple QPUs, maximizing throughput and minimizing idle time.
+  Scheduling quantum circuits across multiple QPUs requires efficient algorithms that minimize idle time while respecting hardware constraints. QGroup uses dynamic programming to optimally group and schedule quantum circuits across multiple QPUs, maximizing throughput and minimizing idle time through principled combinatorial optimization. Evaluated on realistic quantum workloads, QGroup achieves improved scheduling efficiency compared to greedy and heuristic-based baseline approaches.
 
 bibtex: |
   @INPROCEEDINGS{10821381,

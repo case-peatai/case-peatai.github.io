@@ -32,7 +32,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Uses focused convolutions to remove irrelevant pixels from CNN inference, significantly reducing latency and energy consumption while maintaining accuracy.
+  Computer vision CNNs achieve high accuracy but face ever-increasing energy and computation requirements, and making them more energy-efficient typically requires costly retraining. This paper proposes an automated method to improve the inference latency and energy efficiency of pretrained CNNs without retraining, by inserting a threshold layer that identifies irrelevant image regions and replacing subsequent convolutional layers with focused convolutions that ignore those regions entirely. The approach saves inference latency by up to 25% and energy costs by up to 22% on popular pretrained CNNs including ResNet, VGG, and ConvNeXt, with little to no accuracy loss.
 
 bibtex: |
   @misc{tung2023automatedapproachimprovinginference,

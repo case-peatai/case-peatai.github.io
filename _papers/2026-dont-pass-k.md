@@ -27,7 +27,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Introduces a Bayesian framework for more rigorous LLM evaluation, addressing limitations of standard pass@k metrics to provide reliable capability estimates.
+  Pass@k is widely used to report LLM reasoning performance but often yields unstable and misleading rankings, especially when trial counts are limited and compute is constrained. This paper proposes a principled Bayesian evaluation framework that replaces Pass@k with posterior estimates of a model's underlying success probability and credible intervals, using a Dirichlet prior to give closed-form expressions for posterior mean and uncertainty under any weighted rubric. Empirically, on AIME'24/'25, HMMT'25, and BrUMO'25, the Bayesian approach achieves faster convergence and greater rank stability than Pass@k, enabling reliable model comparisons at far smaller sample counts. The framework also naturally extends to graded, rubric-based evaluations, making uncertainty explicit.
 
 bibtex: |
   @inproceedings{

@@ -34,7 +34,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Extends model editing to GNNs, showing they require iterative editing to maintain accuracy after knowledge updates and proposing efficient multi-round GNN editing methods.
+  Model editing—updating specific factual knowledge—has been extensively studied for LLMs but has received little attention for graph neural networks, which present unique challenges due to their relational structure. This paper extends model editing to GNNs, showing that they require iterative multi-round editing to maintain accuracy after knowledge updates, unlike LLMs where single-pass editing is often sufficient. The work proposes efficient multi-round GNN editing methods and demonstrates that both graph structure and node attributes must be carefully managed across editing rounds to prevent knowledge degradation.
 
 bibtex: |
   @inproceedings{

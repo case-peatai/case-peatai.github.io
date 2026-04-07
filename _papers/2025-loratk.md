@@ -38,7 +38,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Reveals that a single LoRA fine-tuning can inject backdoors propagating across downstream model deployments, posing systemic risks in share-and-play ecosystems.
+  Fine-tuning LLMs with LoRA has created a convenient share-and-play ecosystem where users download community-shared adapters to enhance base models, but this also introduces a new attack surface for distributing malicious LoRAs. This paper demonstrates that a backdoor LoRA can be trained once and then seamlessly merged in a training-free fashion with multiple task-enhancing LoRAs, retaining both malicious behavior and legitimate downstream capabilities. Such merged LoRAs are particularly dangerous because malicious intent is concealed behind improved downstream performance, creating strong incentive for voluntary adoption, and no safety measures exist to intervene during local deployment.
 
 bibtex: |
   @misc{liu2025loratkloraoncebackdoor,

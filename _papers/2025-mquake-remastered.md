@@ -37,7 +37,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Presents a revised benchmark for multi-hop knowledge editing in LLMs, showing reliable evaluation methodology is essential to advance the field.
+  Multi-hop knowledge editing in LLMs has been evaluated using benchmarks with unreliable protocols that conflate editing success with benchmark artifacts, producing misleading results. This paper presents MQuAKE-Remastered, which corrects systematic flaws in prior multi-hop knowledge editing assessments and demonstrates that reliable evaluation methodology is largely absent—and essential—for advancing the field. Accepted as a Spotlight at ICLR 2025, the work shows that many reported gains in multi-hop editing do not hold under rigorous evaluation, calling for a reset of evaluation standards.
 
 bibtex: |
   @inproceedings{

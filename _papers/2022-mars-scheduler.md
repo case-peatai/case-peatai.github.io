@@ -28,7 +28,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  MARS uses malleable actor-critic RL for HPC scheduling, adapting to changing workloads to optimize throughput and resource utilization.
+  Scheduling jobs in HPC environments requires handling dynamic, time-varying workloads that challenge static scheduling policies. MARS (Malleable Actor-Critic Reinforcement Learning Scheduler) uses malleable actor-critic RL to adaptively schedule computing jobs, dynamically resizing allocations in response to changing workloads to optimize throughput and resource utilization. Evaluated against standard scheduling baselines, MARS demonstrates consistent improvements in job completion time and cluster utilization across varied workload scenarios.
 
 bibtex: |
   @inproceedings{Baheri_2022,

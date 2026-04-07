@@ -29,7 +29,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Proposes methods to automatically find and exclude irrelevant pixels from computer vision inference, reducing computation without accuracy loss.
+  CNNs are compute-intensive because they indiscriminately compute features on all pixels of an input image, yet many pixels are irrelevant to the vision task at hand. This paper demonstrates through analysis of three popular computer vision datasets that approximately 48% of pixels are irrelevant, and proposes the focused convolution—a drop-in CNN replacement that operates only on relevant pixels identified by an area of interest mask. On an embedded device, the approach achieves no loss in accuracy while reducing inference latency, energy consumption, and multiply-add count by approximately 45%.
 
 bibtex: |
   @misc{tung2022irrelevantpixelseverywhereexclude,

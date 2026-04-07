@@ -31,7 +31,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Adapts SAM2 video segmentation to 3D MRI for zero-shot knee segmentation, achieving strong performance without task-specific training.
+  Medical image segmentation methods face the challenge of domain transfer, where performance degrades due to distribution shifts between source and target domains. This paper adapts SAM2, a general-purpose video segmentation model, for zero-shot single-prompt 3D knee MRI segmentation by treating volumetric slices as individual video frames and leveraging SAM2's memory mechanism to generate motion- and spatially-aware predictions across the volume. Experiments on the OAI-ZIB dataset demonstrate a Dice similarity coefficient of 0.9643 on tibia using only a single prompt and no task-specific training or fine-tuning.
 
 bibtex: |
   @misc{yu2024noveladaptationvideosegmentation,

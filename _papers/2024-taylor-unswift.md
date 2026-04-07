@@ -33,7 +33,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Proposes secured LLM weight release via Taylor expansion, enabling model sharing while protecting intellectual property and preventing unauthorized fine-tuning.
+  Releasing LLM weights poses a dilemma: open-sourcing compromises ownership while closed APIs raise data privacy concerns. This paper introduces TaylorMLP, which protects LLM ownership by transforming weights into Taylor-series parameters that can be released instead of original weights, and prevents unauthorized use by inducing low-speed token generation through increasing the number of Taylor-series terms. Empirical experiments across five datasets and three LLM architectures demonstrate TaylorMLP induces over 4× latency increase while producing tokens precisely matched with original models, effectively defending against weight reconstruction from downstream datasets.
 
 bibtex: |
   @misc{wang2025taylorunswiftsecuredweight,

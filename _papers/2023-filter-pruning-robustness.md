@@ -31,7 +31,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Reveals that structured grouped kernel pruning inherently confers adversarial robustness as a byproduct, showing pruning and robustness are not competing objectives.
+  Structured pruning has traditionally been viewed as trading accuracy for efficiency, often assumed to come at the expense of adversarial robustness. This paper reveals that structured grouped kernel pruning inherently confers adversarial robustness as a byproduct—without any adversarial training—showing that pruning and robustness are not competing objectives but complementary ones. By demonstrating one less reason to avoid filter pruning, the work shows practitioners can gain free adversarial robustness simply by adopting structured grouped kernel pruning as their compression strategy.
 
 bibtex: |
   @inproceedings{

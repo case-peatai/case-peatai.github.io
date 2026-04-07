@@ -29,7 +29,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Accelerates VQE by reusing parameters and measurement results across iterations, reducing quantum circuit executions required for convergence.
+  Variational Quantum Eigensolver algorithms require many quantum circuit executions to converge, creating significant overhead on current quantum hardware. This paper accelerates VQE by reusing parameters and measurement results across iterations, reducing the number of quantum circuit executions required for convergence without sacrificing solution quality. The approach is validated on standard molecular simulation benchmarks, demonstrating meaningful reduction in quantum resource requirements.
 
 bibtex: |
   @INPROCEEDINGS{10386370,

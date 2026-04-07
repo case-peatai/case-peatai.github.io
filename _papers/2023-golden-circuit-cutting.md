@@ -34,7 +34,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Online algorithm for detecting optimal circuit cutting points, enabling efficient partitioning of large quantum circuits for multi-processor execution.
+  Quantum circuit cutting enables large circuits to run on small quantum devices, but reconstructing measurement statistics requires computational resources that grow exponentially with the number of cuts. This paper introduces the concept of a golden cutting point—circuit structures that induce negligible basis components during reconstruction, allowing those downstream computations to be avoided entirely. A hypothesis-testing scheme is proposed for online detection of golden cutting points, with robustness results for low-probability test failures, and demonstrated applicability on Qiskit's Aer simulator achieving reduced wall time from identifying and avoiding obsolete measurements.
 
 bibtex: |
   @misc{chen2023onlinedetectiongoldencircuit,

@@ -39,7 +39,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Leverages typicality to identify and handle out-of-distribution samples, improving reliability and robustness in real-world AI deployments.
+  Current approaches to LLM safety rely on a brittle pattern of identifying and blocking known threats via guardrails. This paper introduces Trust The Typical (T3), a framework that reframes safety as an out-of-distribution detection problem, learning the distribution of acceptable prompts in a semantic space and flagging significant deviations as potential threats. Unlike prior methods, T3 requires no training on harmful examples yet achieves state-of-the-art performance across 18 benchmarks spanning toxicity, jailbreaking, multilingual harms, and over-refusal—reducing false positive rates by up to 40× relative to specialized safety models. A single model trained on safe English text transfers effectively to over 14 languages without retraining.
 
 bibtex: |
   @inproceedings{

@@ -28,7 +28,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Forte detects OOD and synthetic samples using representation typicality estimation with parametric and nonparametric density methods, requiring no class labels.
+  Generative models can now produce photorealistic synthetic data virtually indistinguishable from real training data, challenging OOD detectors that rely on generative model likelihoods due to likelihood misestimation and typicality issues. This paper introduces Forte, which hypothesizes that estimating typical sets using self-supervised learners leads to better OOD detection, using representation learning and informative summary statistics based on manifold estimation to address these issues. Forte outperforms other unsupervised approaches and achieves state-of-the-art performance on established challenging benchmarks as well as new synthetic data detection tasks, requiring no class labels.
 
 bibtex: |
   @misc{ganguly2024fortefindingoutliers,

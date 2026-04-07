@@ -4,7 +4,7 @@ title: "100-LongBench: Are de facto Long-Context Benchmarks Literally Evaluating
 year: 2025
 authors:
   - name: "Wang Yang"
-  - slug: "wang-van-yang"
+    slug: "wang-van-yang"
   - name: "Hongye Jin"
   - name: "Shaochen Zhong"
   - name: "Song Jiang"
@@ -29,7 +29,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Critically examines long-context benchmarks and introduces 100-LongBench to assess whether models truly leverage long-context ability versus relying on shortcuts.
+  Existing long-context evaluation benchmarks fail to separate long-context performance from a model's baseline ability, making cross-model comparisons unclear, and are typically constructed with fixed input lengths that limit applicability across models with different context windows. This paper introduces 100-LongBench, a length-controllable long-context benchmark with a novel metric that disentangles baseline knowledge from true long-context capability across multiple task categories. Experiments demonstrate that existing benchmarks significantly conflate baseline model strength with genuine long-context ability, revealing a widespread evaluation gap.
 
 bibtex: |
   @misc{yang2025100longbenchfactolongcontextbenchmarks,

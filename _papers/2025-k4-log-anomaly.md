@@ -34,7 +34,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  K4 is an online log anomaly detection system using unsupervised typicality learning to identify anomalous HPC system behavior without labeled data.
+  Existing log anomaly detection methods are often slow, dependent on error-prone parsing, and use unrealistic evaluation protocols. This paper introduces K4 (Knowing the Unknown by Knowing only the Known), a fully unsupervised, parser-independent framework that transforms arbitrary log embeddings into compact four-dimensional descriptors—Precision, Recall, Density, Coverage—using efficient k-nearest neighbor statistics. Under a realistic online chunk-based evaluation protocol, K4 achieves state-of-the-art AUROC of 0.995–0.999 across HDFS, BGL, and Thunderbird datasets, with training under 4 seconds and inference as low as 4 μs.
 
 bibtex: |
   @misc{chen2025k4onlineloganomaly,

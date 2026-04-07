@@ -28,7 +28,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Demonstrates that knowledge graph completion can be effectively learned using only intersection features, providing a simpler and more efficient representation approach.
+  Knowledge graph completion can be framed as link prediction where structural information is key, but quantifying this structural information poses a challenge. This paper demonstrates that the intersection among k-hop neighborhoods of the head, relation, and tail is the critical structural signal for valid triple prediction, and proposes a novel randomized algorithm to efficiently generate these intersection features. A straightforward fully-connected network leveraging these features outperforms established KG embedding models and graph neural network baselines, while also achieving substantial training time efficiency gains.
 
 bibtex: |
   @InProceedings{pmlr-v235-le24c,

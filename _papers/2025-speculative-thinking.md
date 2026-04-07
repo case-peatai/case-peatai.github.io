@@ -26,7 +26,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Introduces speculative thinking, an inference-time technique using large model guidance to enhance smaller model reasoning without additional training.
+  Recent advances in post-training enhance model reasoning but require costly training pipelines and produce inefficient, overly lengthy outputs. This paper introduces Speculative Thinking, a training-free framework enabling large reasoning models to guide smaller ones during inference at the reasoning level—distinct from token-level speculative decoding—by identifying structural cues such as paragraph breaks followed by reflective phrases where small models struggle and delegating those steps to a larger model. The method significantly boosts smaller model reasoning accuracy while shortening output length, offering an efficient inference-time paradigm that preserves the small model's compute efficiency.
 
 bibtex: |
   @misc{yang2025speculativethinkingenhancingsmallmodel,

@@ -32,7 +32,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Presents circuit wire cutting based on commuting groups, reducing classical communication overhead and improving scalability of quantum circuit execution.
+  Current quantum devices face challenges with large circuits due to increasing error rates as circuit size and qubit count grow. Inspired by ancilla-assisted quantum process tomography and MUBs-based grouping for simultaneous measurement, this paper proposes a new circuit wire cutting approach that uses ancillary qubits to transform quantum input initializations into quantum output measurements, allowing multiple measurements to be grouped and executed simultaneously. The technique significantly reduces subcircuit execution overhead and classical reconstruction complexity compared to standard wire cutting.
 
 bibtex: |
   @misc{li2024efficientcircuitwirecutting,

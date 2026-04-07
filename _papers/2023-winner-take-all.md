@@ -32,7 +32,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Winner-Take-All column row sampling enables memory-efficient LLM fine-tuning by significantly reducing memory requirements during adaptation.
+  Fine-tuning large pre-trained language models has become increasingly difficult due to extensive memory usage, with the primary bottleneck being the storage of activation feature maps needed for gradient computation. This paper proposes WTA-CRS (Winner-Take-All Column-Row Sampling), a new family of unbiased estimators for matrix products with reduced variance that only requires storing sub-sampled activations for gradient calculation, applied during the backward pass to maintain unbiased gradient estimation. Applied to LLM fine-tuning, WTA-CRS significantly reduces activation memory requirements while maintaining training convergence, enabling adaptation of large models on hardware that would otherwise lack sufficient memory.
 
 bibtex: |
   @misc{liu2024winnertakeallcolumnrowsampling,

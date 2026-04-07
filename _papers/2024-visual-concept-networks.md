@@ -27,7 +27,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Introduces Visual Concept Networks, a graph-based approach detecting anomalous and OOD data in DNNs by modeling relationships between visual concepts in intermediate features.
+  Deep neural networks struggle with robustness against anomalous and out-of-distribution data, and current OOD benchmarks often oversimplify by focusing on single-object tasks. This paper introduces Visual Concept Networks, a graph-based method that converts images into networks of interconnected human-understandable visual concepts and uses topological features to detect both far-OOD and near-OOD data. Extensive testing on two novel complex real-world tasks with ablation studies using large vocabularies demonstrates the method's effectiveness for detecting anomalous data in DNNs.
 
 bibtex: |
   @misc{ganguly2024visualconceptnetworksgraphbased,

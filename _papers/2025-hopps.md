@@ -28,7 +28,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  HOPPS provides hardware-aware optimal phase polynomial synthesis for quantum circuits using blockwise optimization to reduce gate count and improve fidelity.
+  Blocks composed of CNOT and Rz gates are ubiquitous in modern quantum applications such as QAOA ansatzes and quantum adders, but after compilation they often exhibit large CNOT counts or depths that lower fidelity. This paper introduces HOPPS, a SAT-based hardware-aware optimal phase polynomial synthesis algorithm that generates CNOT/Rz blocks with CNOT count or depth optimality under hardware topology constraints. To address scalability for large circuits, an iterative blockwise optimization strategy partitions large circuits into smaller blocks and optimally refines each—achieving CNOT count reductions up to 50% and depth reductions up to 57.1% when used as a peephole optimizer.
 
 bibtex: |
   @misc{li2025hoppshardwareawareoptimalphase,

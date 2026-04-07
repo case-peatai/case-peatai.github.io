@@ -34,7 +34,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Real-life deployment of a privacy-preserving framework for collaborative genomic research, enabling joint analysis without exposing sensitive patient data.
+  The genomic domain stands to benefit greatly from advances in AI and data science, but increasing privacy and cybersecurity concerns necessitate robust solutions for sensitive collaborative research. This paper presents a practical deployment of a privacy-preserving framework for genomic research developed in collaboration with Lynx.MD, a secure health data collaboration platform, addressing challenges of enabling joint analysis of genomic data while mitigating data breach risks. The framework demonstrates scalable, privacy-preserving data sharing and analysis that maintains utility while satisfying rigorous security requirements in a real production environment.
 
 bibtex: |
   @misc{rahmani2024privacypreservingcollaborativegenomicresearch,

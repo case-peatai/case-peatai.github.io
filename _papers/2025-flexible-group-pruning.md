@@ -34,7 +34,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Introduces flexible group count for structured neural network pruning, simplifying the process while achieving competitive compression and accuracy on vision benchmarks.
+  Densely structured pruning methods maintain pruned models in a fully dense format, allowing immediate compression benefits, but existing grouped kernel pruning approaches introduce dynamic operations that add complications or impose limitations such as requiring expensive clustering schemes or custom architecture support. This paper argues that making Conv2d group count flexible under an integral optimization is the best practice for grouped kernel pruning, leveraging its ideal alignment with grouped convolution infrastructure. The resulting one-shot, post-train, data-agnostic method is more performant, adaptive, and user-friendly than its predecessors, requiring little to no hyperparameter tuning or handcrafted criteria.
 
 bibtex: |
   @INPROCEEDINGS{11094192,

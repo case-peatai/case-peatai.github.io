@@ -30,7 +30,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Approaches for building performant scientific workflows with integrated monitoring and measurement, enabling better understanding and optimization of HPC workflow performance.
+  Scientific HPC workflows require robust monitoring and measurement infrastructure to understand performance characteristics and enable optimization. This paper presents approaches for building performant scientific workflows with integrated monitoring and measurement, enabling better characterization and optimization of HPC workflow performance across distributed computing environments. The work provides practical methodologies for workflow developers to identify bottlenecks and improve end-to-end throughput.
 
 bibtex: |
   @INPROCEEDINGS{9209647,

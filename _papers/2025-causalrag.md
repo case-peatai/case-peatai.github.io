@@ -26,7 +26,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Integrates causal graphs into RAG pipelines to enable more accurate and causally grounded generation by leveraging structured causal knowledge during retrieval.
+  Traditional RAG systems face critical limitations including disrupted contextual integrity from text chunking and over-reliance on semantic similarity for retrieval. This paper proposes CausalRAG, a novel framework that incorporates causal graphs into the retrieval process, constructing and tracing cause-effect relationships to preserve contextual continuity and improve retrieval precision. Evaluated against regular RAG and graph-based RAG approaches across multiple metrics including answer faithfulness and context precision, CausalRAG demonstrates consistent superiority, showing that causal grounding is a promising direction for knowledge-intensive tasks.
 
 bibtex: |
   @misc{wang2025causalragintegratingcausalgraphs,

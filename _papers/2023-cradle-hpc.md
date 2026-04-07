@@ -29,7 +29,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Demonstrates CRADLE as a distributed data-centric framework for accelerating materials data science workflows and reducing time-to-science.
+  Accelerating materials data science requires scalable frameworks that can manage heterogeneous data and computation across distributed systems. This paper presents CRADLE, a distributed data-centric framework for materials data science workflows that integrates data management, computation, and analysis pipelines to significantly reduce time-to-science. Demonstrated on the 30th IEEE HiPC system, CRADLE shows substantial throughput improvements and workflow simplification for materials characterization and discovery tasks in HPC environments.
 
 bibtex: |
   @INPROCEEDINGS{10487079,

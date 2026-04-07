@@ -23,7 +23,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Predictive analytics framework for detecting and forecasting insider trading events using ML applied to financial transaction data and market signals.
+  Detecting and forecasting insider trading events using traditional methods is limited by their reliance on predefined rules and inability to capture subtle market signals. This paper presents a predictive analytics framework for insider trading events using machine learning applied to financial transaction data and market signals, demonstrating the ability to identify patterns predictive of insider trading. The approach provides early warning capabilities that can complement traditional regulatory surveillance methods.
 
 bibtex: |
   @INPROCEEDINGS{9377791,

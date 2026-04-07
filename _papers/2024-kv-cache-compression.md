@@ -34,7 +34,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Comprehensive benchmark of KV cache compression techniques for long-context LLMs, systematically evaluating trade-offs between compression ratio, accuracy, and latency.
+  Long-context capability is critical for LLMs, but transformer architectures face significant challenges due to growing KV cache size and the complexity of attending to extended inputs. This paper provides a comprehensive taxonomy and benchmark evaluation of 10+ state-of-the-art approaches across seven long-context task categories—including KV cache quantization, token dropping, prompt compression, linear-time sequence models, and hybrid architectures—evaluated in a unified, aligned environment. The work reveals numerous previously unknown phenomena and offers a practical workbench and insights for the future development of long-context-capable LLMs.
 
 bibtex: |
   @misc{yuan2024kvcachecompressionreturn,

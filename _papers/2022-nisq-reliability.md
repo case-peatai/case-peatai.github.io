@@ -29,7 +29,7 @@ research_areas:
 
 # --- CONTENT ---
 abstract: |
-  Investigates sources and patterns of reliability degradation in NISQ machines, identifying when and where noise causes significant quantum circuit performance drops.
+  Noise in quantum hardware causes significant reliability degradation in NISQ machines, but the systematic patterns of this degradation are not well understood. This paper investigates the sources and temporal patterns of reliability degradation in NISQ machines, identifying when and where noise causes significant performance drops in quantum circuits. The analysis provides guidance for developing error mitigation strategies targeted at the most impactful reliability degradation patterns in near-term quantum hardware.
 
 bibtex: |
   @INPROCEEDINGS{9951284,
