@@ -80,3 +80,4 @@ awards:
   - "METU IEEE Hackathon – 1st Place, 2020"
 
 teaching_interests: "High-performance computing, parallel and distributed systems, machine learning systems, graph neural networks, and large-scale AI."
+---
