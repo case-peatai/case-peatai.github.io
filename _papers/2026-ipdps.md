@@ -22,7 +22,7 @@ conference: "40th IEEE International Parallel & Distributed Processing Symposium
 doi: "https://doi.org/10.5281/zenodo.18688333"                       # Just the ID (e.g., 10.1177/xxxx)
 github: "KLab-AI3/ipdps-26_vit"                    # Just the repo path (e.g., case-peatai/repo-name)
 # arxiv: ""                     # Just the ID (e.g., 2301.xxxx)
-paper_page: "https://github.com/KLab-AI3/ipdps-26_vit"                # Full URL to a custom project page (e.g. GitHub Pages)
+# paper_page: "https://github.com/KLab-AI3/ipdps-26_vit"                # Full URL to a custom project page (e.g. GitHub Pages)
 
 # --- CATEGORIZATION ---
 # These tags allow the paper to be filtered on the publications page.
