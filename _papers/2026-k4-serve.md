@@ -7,6 +7,7 @@ authors:
   - name: "V. Singh"
   - name: "Z. Rahmani"
   - name: "D. Ganguly"
+    slug: "debargha-ganguly"
   - name: "Mohsen Hariri"
     slug: "mohsen-hariri"
   - name: "S. Maxwell"

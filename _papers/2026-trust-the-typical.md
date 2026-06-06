@@ -4,7 +4,7 @@ title: "Trust the Typical"
 year: 2026
 authors:
   - name: "Debargha Ganguly"
-    slug: "debargaha-ganguly"
+    slug: "debargha-ganguly"
   - name: "Srihari Sankar"
     slug: "srihari-sankar"
   - name: "Biyao Zhang"

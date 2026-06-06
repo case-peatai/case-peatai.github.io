@@ -1,10 +1,10 @@
 ---
-name: "forte"
+name: "forte-finding-outliers"
 title: "Forte: Finding Outliers with Representation Typicality Estimation"
 year: 2025
 authors:
   - name: "Debargha Ganguly"
-    slug: "debargaha-ganguly"
+    slug: "debargha-ganguly"
   - name: "Warren Morningstar"
   - name: "Andrew Yu"
     slug: "andrew-yu"

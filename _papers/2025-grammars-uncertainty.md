@@ -4,7 +4,7 @@ title: "Grammars of Formal Uncertainty: When to Trust LLMs in Automated Reasonin
 year: 2025
 authors:
   - name: "Debargha Ganguly"
-    slug: "debargaha-ganguly"
+    slug: "debargha-ganguly"
   - name: "Vikash Singh"
     slug: "vikash-singh"
   - name: "Sreehari Sankar"
