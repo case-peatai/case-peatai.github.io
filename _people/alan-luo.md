@@ -25,7 +25,7 @@ google_scholar: "https://scholar.google.com/citations?user=CQBC3WgAAAAJ&hl=en"  
 # --- PROFILE PHOTO ---
 # Place your photo in /assets/images/ and link the path here. 
 # If left blank, a default avatar will be used.
-image: "/assets/images/alan-luo.jpg"
+# image: "/assets/images/alan-luo.jpg"
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.
