@@ -4,7 +4,7 @@ name: "Sumon Biswas"             # REQUIRED: Your name as it should appear
 slug: "sumon-biswas"            # REQUIRED: Your name in lowercase with hyphens (e.g., "jane-doe")
 type: "faculty"            # REQUIRED: Options are "faculty" or "researcher"
 level: "STAFF"                  # REQUIRED: Options are "STAFF", "PHD", "MS", or "UG". This is used for filtering and display purposes.
-role: "Assistant Professor"            # REQUIRED: e.g., "PhD Student" or "AI Researcher". This appears under your name on the profile page.
+role: "Assistant Professor, Department of Computer and Data Sciences, Case School of Engineering"            # REQUIRED: e.g., "PhD Student" or "AI Researcher". This appears under your name on the profile page.
 
 # --- CONTACT & SOCIALS (Highly Recommended) ---
 email: "sumon@case.edu"
