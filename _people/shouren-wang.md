@@ -23,6 +23,8 @@ bio: |
 
 research_summary: "Large language model reasoning, post-training, model architecture, and AI agent systems."
 projects:
+  - name: "How to Loop MoE"
+    description: "Studies when recurrent depth benefits Mixture-of-Experts language models, how expert and attention parameters should be shared across loops, and what router behavior reveals about repeated computation."
   - name: "Hybrid Thinking and Controllable Reasoning"
     description: "Studies how language models switch between fast and deliberative modes, from diagnosing reasoning leakage and training-data effects to architecture-level separation of reasoning pathways."
     url: "https://arxiv.org/abs/2604.27201"
